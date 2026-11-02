@@ -574,6 +574,7 @@ const ROOMS = [
 
 const PEOPLE = {
   sb:{name:'Sarah Brandt', role:'Projektleitung · Ihre erste Ansprechpartnerin', init:'SB', color:'#132c52', tel:'+49 561 123456-12', mail:'s.brandt@muster-energie.de', lead:true},
+  dk:{name:'Dennis Karpfen', role:'Technische Planung · Fragen zu Heizlast und Auslegung', init:'DK', color:'#4a3b78', tel:'+49 561 123456-22', mail:'d.karpfen@muster-energie.de'},
   my:{name:'Murat Yilmaz', role:'Montageleiter · Installation vor Ort', init:'MY', color:'#2d5a3d', tel:'+49 561 123456-30', mail:'m.yilmaz@muster-energie.de'},
   lh:{name:'Lena Hoffmann', role:'Förderung & Rechnungen', init:'LH', color:'#7a4a12', tel:'+49 561 123456-41', mail:'foerderung@muster-energie.de'},
   ks:{name:'Kundenservice', role:'Mo–Fr 8–18 Uhr', init:'KS', color:'#5b6577', tel:'+49 561 123456-0', mail:'service@muster-energie.de'},
@@ -758,7 +759,7 @@ $('#updates').innerHTML = UPDATES.map(u => `<li><div class="u-meta">${u.d} · ${
 (function(){
   const links=[...document.querySelectorAll('.topnav a')];
   const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
-  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=map.get(e.target.id); if(a){ a.classList.add('active'); a.scrollIntoView({block:'nearest',inline:'nearest'}); } } }); },{rootMargin:'-45% 0px -50% 0px'});
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=map.get(e.target.id); if(a){ a.classList.add('active'); const nav=a.parentElement; const x=a.offsetLeft-nav.offsetLeft; if(x<nav.scrollLeft||x+a.offsetWidth>nav.scrollLeft+nav.clientWidth){ nav.scrollTo({left:Math.max(0,x-16)}); } } } }); },{rootMargin:'-45% 0px -50% 0px'});
   map.forEach((a,id)=>{ const s=document.getElementById(id); if(s) io.observe(s); });
 })();
 </script>
