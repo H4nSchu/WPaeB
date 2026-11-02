@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ihre Wärmepumpenplanung · Familie Mustermann (V2)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1.5 1.5 7v7.5h4.5V10h4v4.5h4.5V7z" fill="#0b1f3b"/></svg>
+      </span>
+      Projektportal <small>Wärmepumpe</small><span class="ver">V2</span>
+    </a>
+    <nav class="topnav" aria-label="Abschnitte">
+      <a href="#timeline">Ablauf</a>
+      <a href="#termin">Vor-Ort-Termin</a>
+      <a href="#heizlast">Heizlast</a>
+      <a href="#abgleich">Hydraulik</a>
+      <a href="#auslegung">Auslegung &amp; Kosten</a>
+      <a href="#heizkoerper">Heizkörper</a>
+      <a href="#checkliste">Checkliste</a>
+      <a href="#faq">FAQ</a>
+      <a href="#fragen">Fragen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Projekt WP-2026-04817</div>
+      <h1>Ihre Wärmepumpen&shy;planung auf einen Blick</h1>
+      <p class="lead">Guten Tag Familie Mustermann, hier finden Sie alles zu Ihrer neuen Wärmepumpe: was wir beim Vor-Ort-Termin besprochen haben, wie wir Ihr Haus berechnet haben, was Sie bis zur Installation erledigen sollten und wen Sie bei Fragen erreichen. Wir halten diese Seite bis zur Inbetriebnahme aktuell.</p>
+      <div class="hero-meta">
+        <span>Am Lindenhof 7, 34128 Kassel</span>
+        <span>Zuletzt aktualisiert: <b>02.11.2026</b> von Sarah Brandt</span>
+      </div>
+    </div>
+    <aside class="next-card" aria-label="Ihre zwei Installationstermine">
+      <div class="label" style="margin-bottom:8px">Ihre zwei Installationstermine</div>
+      <div class="date-row next" id="dateElec"><span class="date-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0b1f3b" stroke-width="2.2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><div><div class="t">1. Elektrikertermin</div><div class="d">Do, 12. November 2026</div><div class="s">8:00 – 12:00 Uhr · Tobias Wendt · Strom ca. 3 Std. aus</div></div></div>
+      <div class="date-row" id="dateWp"><span class="date-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg></span><div><div class="t">2. Wärmepumpen-Installation</div><div class="d">24. – 26. November 2026</div><div class="s">ab 7:30 Uhr · Montageteam Murat Yilmaz</div></div></div>
+      <span class="days" id="countdown">in 10 Tagen</span>
+      <div class="progress" aria-hidden="true"><span id="heroBar" style="width:0%"></span></div>
+      <div class="small"><span id="heroCount">0 von 0</span> Punkten Ihrer <a class="inline" href="#checkliste">Checkliste</a> erledigt</div>
+    </aside>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <main class="main">
+
+    <!-- Ablauf -->
+    <section class="card" id="timeline">
+      <div class="sec-head"><div><h2>So läuft Ihr Projekt ab</h2><p>Erledigte Schritte sind dunkel markiert.</p></div></div>
+      <ol class="tl h" id="tl"></ol>
+    </section>
+
+    <!-- 1 -->
+    <section class="card" id="termin">
+      <div class="sec-head"><span class="sec-no">1</span><div><h2>Ergebnisse aus dem Vor-Ort-Termin</h2><p>Termin zur Montagevorbereitung am 18.09.2026 mit Murat Yilmaz</p></div></div>
+      <p>Die wichtigsten Erkenntnisse im Überblick. Die Daten sind gleichzeitig die Grundlage für die Heizlastberechnung in <a href="#heizlast">Kapitel 2</a>.</p>
+      <div class="tbl-wrap">
+        <table>
+          <tbody>
+            <tr><td>Haus nachträglich gedämmt?</td><td><b>Nein</b></td></tr>
+            <tr><td>Heizraum im Stockwerk</td><td><b>Keller</b></td></tr>
+            <tr><td>Hindernisse im Heizraum?</td><td><b>Ja:</b> Waschmaschine &amp; Trockner müssen raus</td></tr>
+            <tr><td>Wärmeverteilung</td><td><b>Heizkörper</b> und <b>Fußbodenheizung</b> (Bad, Küche/Essen)</td></tr>
+            <tr><td>Wanddurchbrüche Elektrik</td><td><b>1</b></td></tr>
+            <tr><td>Abstellgenehmigung Lieferung?</td><td><b>Ja</b></td></tr>
+            <tr><td>Materiallager bis Installation</td><td><b>Carport</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="split">
+        <div>
+          <h3 style="margin-bottom:10px">Von Ihnen unterschrieben am 18.09.2026</h3>
+          <ul class="signed">
+            <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Aufstellort der Außeneinheit gemäß Skizze/Foto</li>
+            <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Erdarbeiten erledigen Sie vor Baubeginn</li>
+            <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Angaben zum Dämmzustand Ihres Hauses sind korrekt</li>
+          </ul>
+          <p class="muted" style="margin-top:14px;font-size:.92rem">Die Skizze zeigt den mit Murat Yilmaz abgestimmten Aufstellort. Falls Erdarbeiten nötig sind, zeigt sie auch, wo der Graben verlaufen soll (Maße in <a href="#checkliste">Ihrer Checkliste</a>).</p>
+        </div>
+        <figure class="sketch" style="margin:0">
+          <svg viewBox="0 0 520 330" role="img" aria-label="Skizze des Aufstellorts: Außeneinheit 1 Meter vor der Hecke und 1 Meter neben der Terrasse, Graben 2 Meter zur Hauswand">
+            <rect x="0" y="0" width="520" height="70" fill="#dfe9d6"/>
+            <g fill="#a9c79a">
+              <circle cx="30" cy="62" r="22"/><circle cx="80" cy="58" r="26"/><circle cx="135" cy="63" r="22"/><circle cx="185" cy="58" r="26"/><circle cx="240" cy="62" r="23"/><circle cx="295" cy="58" r="26"/><circle cx="350" cy="63" r="22"/><circle cx="405" cy="58" r="25"/><circle cx="460" cy="62" r="23"/><circle cx="505" cy="58" r="22"/>
+            </g>
+            <text x="16" y="28" font-size="13" fill="#3f5a33" font-family="Figtree,sans-serif" font-weight="600">Hecke</text>
+            <rect x="0" y="86" width="150" height="190" fill="#e4e4e0"/>
+            <g stroke="#d0d0ca" stroke-width="1">
+              <path d="M0 124h150M0 162h150M0 200h150M0 238h150M50 86v190M100 86v190"/>
+            </g>
+            <text x="16" y="110" font-size="13" fill="#6a6a62" font-family="Figtree,sans-serif" font-weight="600">Terrasse</text>
+            <rect x="0" y="276" width="520" height="54" fill="#c9ced6"/>
+            <text x="16" y="308" font-size="13" fill="#0b1f3b" font-family="Figtree,sans-serif" font-weight="700">Hauswand · Kellerdurchbruch</text>
+            <rect x="415" y="276" width="18" height="10" fill="#0b1f3b"/>
+            <!-- Unit -->
+            <rect x="250" y="116" width="150" height="62" rx="6" fill="#0b1f3b"/>
+            <circle cx="290" cy="147" r="20" fill="none" stroke="#ffd60a" stroke-width="3"/>
+            <circle cx="290" cy="147" r="4" fill="#ffd60a"/>
+            <text x="320" y="152" font-size="12" fill="#fff" font-family="Figtree,sans-serif" font-weight="700">WP</text>
+            <!-- trench -->
+            <path d="M380 178 V230 H424 V276" stroke="#b85c00" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+            <text x="432" y="236" font-size="12" fill="#b85c00" font-family="Figtree,sans-serif" font-weight="700">Graben ca. 2 m</text>
+            <!-- dims -->
+            <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b" font-family="Figtree,sans-serif" font-size="12" font-weight="700">
+              <path d="M325 82 V114" /><path d="M319 82h12M319 114h12"/>
+              <text x="336" y="103" stroke="none">1,00 m</text>
+              <path d="M152 147 H248"/><path d="M152 141v12M248 141v12"/>
+              <text x="178" y="140" stroke="none">1,00 m</text>
+              <path d="M250 194 H400"/><path d="M250 188v12M400 188v12"/>
+              <text x="300" y="212" stroke="none">1,00 m</text>
+            </g>
+          </svg>
+          <figcaption>Skizze nach Foto vom Vor-Ort-Termin, nicht maßstabsgetreu. Fundament ca. 1,00 × 0,50 m.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="card" id="heizlast">
+      <div class="sec-head"><span class="sec-no">2</span><div><h2>Heizlastberechnung für Ihr Haus</h2><p>Raumweise berechnet nach DIN EN 12831 aus den Daten des Vor-Ort-Termins</p></div></div>
+      <p>Die Heizlast sagt, wie viel Wärme jeder Raum am kältesten Tag des Jahres braucht, um warm zu bleiben. Für Kassel rechnen wir mit einer Außentemperatur von <b>−12 °C</b>. Die letzte Spalte zeigt, ob Ihr vorhandener Heizkörper das mit der Wärmepumpe (55 °C Vorlauf) schafft.</p>
+      <div class="tbl-wrap">
+        <table id="roomTable">
+          <thead><tr><th>Raum</th><th class="r">Fläche</th><th class="r">Soll-Temp.</th><th class="r">Heizlast</th><th>Heizkörper</th></tr></thead>
+          <tbody></tbody>
+          <tfoot><tr><th>Gesamt</th><th class="r num" id="sumArea"></th><th></th><th class="r num" id="sumLoad"></th><th></th></tr></tfoot>
+        </table>
+      </div>
+
+      <details class="expert" id="expert">
+        <summary><span class="pill">EXPERTENMODUS</span> Heizkurve Ihres Hauses <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="expert-body">
+          <p class="muted" style="font-size:.93rem">Die Heizkurve legt fest, wie warm das Heizwasser bei welcher Außentemperatur sein muss. Je kälter es draußen ist, desto höher die Vorlauftemperatur. Wir stellen sie bei der Inbetriebnahme so ein, dass jeder Raum warm wird, aber die Wärmepumpe möglichst niedrig und damit sparsam fährt. Fahren Sie mit Maus oder Finger über die Grafik.</p>
+          <div class="legend" aria-hidden="true">
+            <span><svg width="22" height="6"><line x1="0" y1="3" x2="22" y2="3" stroke="#2a64b0" stroke-width="2.5"/></svg>Vorlauf Heizkörper</span>
+            <span><svg width="22" height="6"><line x1="0" y1="3" x2="22" y2="3" stroke="#c2410c" stroke-width="2.5" stroke-dasharray="5 3"/></svg>Rücklauf Heizkörper</span>
+            <span><svg width="22" height="6"><line x1="0" y1="3" x2="22" y2="3" stroke="#2f8f5b" stroke-width="2.5" stroke-dasharray="1.5 3" stroke-linecap="round"/></svg>Vorlauf Fußbodenheizung</span>
+          </div>
+          <div class="chart-wrap" id="hcWrap">
+            <svg id="hc" viewBox="0 0 680 340" role="img" aria-label="Heizkurve: Vorlauftemperatur Heizkörper 55 Grad bei minus 12 Grad außen, sinkt auf etwa 28 Grad bei plus 15 Grad; Fußbodenheizung 35 Grad bei minus 12 Grad."></svg>
+            <div class="tip" id="hcTip"></div>
+          </div>
+          <dl class="params num">
+            <div><dt>Normaußentemperatur Kassel</dt><dd>−12 °C</dd></div>
+            <div><dt>Heizgrenze (Heizung aus darüber)</dt><dd>15 °C</dd></div>
+            <div><dt>Auslegung Heizkörper (Vor-/Rücklauf)</dt><dd>55 / 48 °C</dd></div>
+            <div><dt>Auslegung Fußbodenheizung</dt><dd>35 / 30 °C (Mischer)</dd></div>
+            <div><dt>Steilheit / Niveau (Startwert)</dt><dd>1,1 / 0 K</dd></div>
+            <div><dt>Bivalenzpunkt (ab hier hilft der Heizstab)</dt><dd>ca. −9 °C</dd></div>
+            <div><dt>Ø Außentemperatur Heizperiode</dt><dd>ca. 4 °C → 41 °C Vorlauf</dd></div>
+            <div><dt>Heizkörper-Exponent n</dt><dd>1,3</dd></div>
+          </dl>
+          <p class="muted" style="font-size:.84rem;margin:10px 0 0">Jedes Grad weniger Vorlauf verbessert die Effizienz um etwa 2,5 %. Deshalb lohnt es sich, die Kurve nach dem ersten Winter gemeinsam nachzujustieren.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 2b Hydraulik -->
+    <section class="card" id="abgleich">
+      <div class="sec-head"><span class="sec-no" style="width:auto;padding:0 8px">2b</span><div><h2>Hydraulischer Abgleich</h2><p>Wie viel Heizwasser durch jeden Heizkörper fließen soll</p></div></div>
+      <p>Ohne Abgleich nimmt sich das Heizwasser den einfachsten Weg: Heizkörper nah an der Wärmepumpe werden zu warm, entfernte bleiben kühl. Beim hydraulischen Abgleich stellen wir an jedem Ventil genau die Wassermenge ein, die der Raum laut Heizlast braucht. Das spart Strom, macht die Räume gleichmäßig warm und ist <b>Voraussetzung für Ihre KfW-Förderung</b> (Verfahren B).</p>
+      <div class="tbl-wrap">
+        <table id="flowTable">
+          <thead><tr><th>Raum</th><th class="r">Heizlast</th><th class="r">Spreizung</th><th>Durchfluss</th><th class="r">Ventil-Voreinstellung</th></tr></thead>
+          <tbody></tbody>
+          <tfoot><tr><th>Gesamt-Volumenstrom</th><th class="r num" id="fSumW"></th><th></th><th class="num" id="fSum"></th><th></th></tr></tfoot>
+        </table>
+      </div>
+      <div class="footnote" style="margin-top:12px">
+        <p><b>So rechnen wir:</b> Durchfluss (l/h) = Heizlast (W) ÷ (1,163 × Spreizung in K). Die Spreizung ist der Unterschied zwischen Vor- und Rücklauf: 7 K bei Heizkörpern (55/48 °C), 5 K bei der Fußbodenheizung (35/30 °C). Die Voreinstellung (Stufe 1 bis 6 bzw. N = offen) gilt für Ihre vorhandenen Thermostatventile. Für die neuen Heizkörper bringen wir passende Ventile mit.</p>
+        <p>Den Abgleich machen wir am letzten Installationstag. Das Protokoll bekommen Sie danach für Ihre Förderunterlagen.</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="card" id="auslegung">
+      <div class="sec-head"><span class="sec-no">3</span><div><h2>Auslegung und Betriebskosten</h2><p>Was aus der Heizlast für Ihre Wärmepumpe folgt</p></div></div>
+      <div class="kpis">
+        <div class="kpi"><div class="k">Beheizte Fläche</div><div class="v num">165,4 <small>m²</small></div></div>
+        <div class="kpi"><div class="k">Gebäudeheizlast</div><div class="v num">17,71 <small>kW</small></div></div>
+        <div class="kpi"><div class="k">Leistung Außeneinheit</div><div class="v num">16 <small>kW</small></div></div>
+        <div class="kpi"><div class="k">Vorlauftemperatur</div><div class="v num">55 <small>°C</small></div></div>
+        <div class="kpi"><div class="k">Jahresarbeitszahl (JAZ)</div><div class="v num">3,07</div></div>
+        <div class="kpi accent"><div class="k">Geschätzte Stromkosten <sup><a href="#fn1">¹</a></sup></div><div class="v num"><span id="kpiCost">2.433</span> <small>€/Jahr</small></div></div>
+      </div>
+      <p>Die Außeneinheit ist für einen effizienten Dauerbetrieb ausgelegt. Seltene Lastspitzen an sehr kalten Tagen übernimmt der eingebaute elektrische Zuheizer. Deshalb ist die Außeneinheit mit 16 kW etwas kleiner als die berechnete Heizlast von 17,71 kW.</p>
+      <p>Die <b>Jahresarbeitszahl</b> zeigt die Effizienz: Aus 1 kWh Strom macht Ihre Wärmepumpe im Jahresmittel 3,07 kWh Wärme.</p>
+
+      <div class="calc" id="rechner">
+        <div class="calc-head"><h3>Wie wir auf die Betriebskosten kommen</h3><span class="muted" style="font-size:.86rem">Probieren Sie Ihre eigenen Werte aus</span></div>
+        <div class="calc-body">
+          <div style="display:grid;gap:18px">
+            <div class="field">
+              <label for="temp"><span>Durchschnittliche Raumtemperatur</span><span class="num" id="tempOut">21 °C</span></label>
+              <input type="range" id="temp" min="17" max="28" step="0.5" value="21">
+              <div class="presets" id="presets">
+                <button type="button" data-t="19">Eher kühl · 19 °C</button>
+                <button type="button" data-t="21" class="on">Unsere Annahme · 21 °C</button>
+                <button type="button" data-t="23">Warm · 23 °C</button>
+                <button type="button" data-t="26">Sehr warm · 26 °C</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="price"><span>Strompreis (Wärmepumpentarif)</span></label>
+              <div class="price-in"><input id="price" type="number" inputmode="decimal" min="0.10" max="0.80" step="0.01" value="0.28"><span class="muted">€ pro kWh</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="result"><div class="small">Geschätzte Stromkosten pro Jahr</div><div class="big num" id="costOut">2.433 €</div><div class="small" id="costMonth">ca. 203 € im Monat</div></div>
+            <ul class="steps num" style="margin-top:12px" id="steps"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="footnote" id="fn1">
+        <p><b>¹ So rechnen wir:</b> Ihr Wärmebedarf liegt bei rund <b>26.680 kWh pro Jahr</b>. Abgeleitet haben wir ihn aus Ihrem Ölverbrauch der letzten drei Jahre (Ø 2.965 Liter × 10 kWh pro Liter × 90 % Nutzungsgrad des alten Kessels) und mit der Heizlastberechnung abgeglichen. Davon entfallen etwa 23.480 kWh auf die Heizung und 3.200 kWh auf das Warmwasser für 4 Personen.</p>
+        <p>26.680 kWh ÷ JAZ 3,07 = <b>8.691 kWh Strom</b> × <b>0,28 €/kWh</b> (Arbeitspreis eines typischen Wärmepumpentarifs, brutto) = <b>2.433 € pro Jahr</b>.</p>
+        <p>Angenommen ist eine <b>durchschnittliche Raumtemperatur von 21 °C</b> in den Wohnräumen (Bad 24 °C). Faustregel: Jedes Grad mehr kostet rund 6 % mehr Heizenergie. Wer nirgends über 20 °C heizt, zahlt also spürbar weniger, wer im Winter bei 26 °C im T-Shirt sitzt, deutlich mehr. Nicht enthalten ist der Grundpreis Ihres Stromtarifs (meist 100 bis 180 € im Jahr). Wetter und Nutzung können die tatsächlichen Kosten verändern.</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="card" id="heizkoerper">
+      <div class="sec-head"><span class="sec-no">4</span><div><h2>Empfohlener Heizkörpertausch</h2><p>Zwei Räume brauchen bei 55 °C mehr Leistung, als die heutigen Heizkörper liefern</p></div></div>
+      <p>Ihre Wärmepumpe arbeitet mit einer niedrigeren Vorlauftemperatur als Ihr Ölkessel. Ein Heizkörper gibt dann weniger Wärme ab. In diesen zwei Räumen reicht die Leistung dafür nicht ganz:</p>
+      <div class="tbl-wrap">
+        <table id="radTable">
+          <thead><tr><th>Raum</th><th>Heute → Neu</th><th class="r">Heute bei 55 °C</th><th class="r">Benötigt</th><th class="r">Neu bei 55 °C</th><th class="r">Festpreis</th></tr></thead>
+          <tbody>
+            <tr><td><b>Schlafzimmer</b>, 1. OG</td><td data-l="Tausch">Rippenheizkörper (Guss) → Typ 33, 600 × 1.400 mm</td><td class="r num" data-l="Heute bei 55 °C">1.500 W</td><td class="r num" data-l="Benötigt">2.354 W</td><td class="r num" data-l="Neu bei 55 °C">2.420 W</td><td class="r num" data-l="Festpreis">1.500 €</td></tr>
+            <tr><td><b>Kinderzimmer</b>, 1. OG</td><td data-l="Tausch">Typ 22 → Typ 33, 600 × 1.100 mm (10 cm breiter, gleiche Anschlusshöhe)</td><td class="r num" data-l="Heute bei 55 °C">935 W</td><td class="r num" data-l="Benötigt">1.500 W</td><td class="r num" data-l="Neu bei 55 °C">1.520 W</td><td class="r num" data-l="Festpreis">1.500 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <a class="explain-link" href="heizkoerpertausch.html">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b1f3b" stroke-width="2"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M7 5v12M11 5v12M15 5v12M19 5v12M5 21v-4M19 21v-4"/></svg></span>
+        <span><b>So funktioniert der Heizkörpertausch</b><span class="muted">Meist tauschen wir einen 22er gegen einen baugleichen 33er oder einen alten Rippenheizkörper gegen einen modernen. Mit Bildern erklärt.</span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <div class="note"><b>Wichtig zu wissen</b>Der Heizkörpertausch ist nicht im Kaufpreis der Wärmepumpe enthalten. Sie können ihn jetzt dazubuchen oder innerhalb von 18 Monaten nach der Installation zum gleichen Festpreis nachrüsten, falls Ihnen ein Raum zu kühl bleibt.</div>
+
+      <h3 style="margin-top:22px">So beauftragen Sie den Tausch</h3>
+      <div class="howto">
+        <div><h3>Kurz Bescheid geben</h3><p>Schreiben Sie unten eine Frage/Nachricht oder rufen Sie Ihre Baubegleiterin Sarah Brandt an: 0561 123456-12. Sagen Sie, welche Räume getauscht werden sollen.</p></div>
+        <div><h3>Bestätigung erhalten</h3><p>Sie bekommen innerhalb von 2 Werktagen eine Auftragsbestätigung per E-Mail zum Festpreis von 1.500 € je Heizkörper.</p></div>
+        <div><h3>Tausch am Installationstag</h3><p>Bei Bestellung bis <b>13.11.2026</b> tauschen wir die Heizkörper direkt bei der Wärmepumpen-Installation (24.–26.11.). Später ist ein eigener Termin nötig.</p></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn primary" type="button" id="orderRad">Heizkörpertausch anfragen</button>
+        <a class="btn ghost" href="tel:+4956112345612">Sarah Brandt anrufen</a>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="card" id="checkliste">
+      <div class="sec-head"><span class="sec-no">5</span><div><h2>Ihre Checkliste bis zu den Installationsterminen</h2><p>Haken Sie ab, was erledigt ist. Ihr Stand wird auf diesem Gerät gespeichert.</p></div></div>
+      <div class="cl-progress"><div class="bar"><span id="clBar"></span></div><b id="clCount">0 / 0 erledigt</b></div>
+      <ul class="cl" id="cl"></ul>
+      <div class="cl-group"><h3>Optional, aber empfohlen</h3><span class="muted" style="font-size:.88rem">zählt nicht zur Checkliste</span></div>
+      <ul class="cl" id="clOpt"></ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="card" id="faq">
+      <div class="sec-head"><div><h2>Häufige Fragen</h2><p>Was andere Kundinnen und Kunden vor der Installation wissen wollten</p></div></div>
+      <div class="faq" id="faqList"></div>
+      <p class="muted" style="font-size:.92rem;margin:14px 0 0">Ihre Frage ist nicht dabei? <a href="#fragen">Stellen Sie sie direkt hier unten.</a></p>
+    </section>
+
+    <!-- Fragen -->
+    <section class="card" id="fragen">
+      <div class="sec-head"><div><h2>Ihre Fragen an uns</h2><p>Antworten erscheinen hier und zusätzlich per E-Mail. In der Regel innerhalb eines Werktags.</p></div></div>
+      <form class="ask" id="askForm">
+        <label for="q">Was möchten Sie wissen?</label>
+        <textarea id="q" placeholder="z. B. Wie laut ist die Außeneinheit nachts?" required></textarea>
+        <div class="ask-foot"><span>Geht an Sarah Brandt, Ihre Baubegleiterin</span><button class="btn primary" type="submit">Frage senden</button></div>
+      </form>
+      <ul class="qa" id="qa"></ul>
+    </section>
+  </main>
+
+  <aside class="side">
+    <section class="card" id="kontakt">
+      <h3>Ihre Ansprechpartner</h3>
+      <div class="contacts" id="contacts"></div>
+    </section>
+    <section class="card">
+      <h3>Neuigkeiten</h3>
+      <ul class="updates" id="updates"></ul>
+    </section>
+    <section class="card">
+      <h3>Dokumente</h3>
+      <ul class="updates" style="font-size:.92rem">
+        <li><a href="#" onclick="return false">Angebot &amp; Auftragsbestätigung</a> <span class="muted">· PDF</span></li>
+        <li><a href="#" onclick="return false">Protokoll Vor-Ort-Termin 18.09.</a> <span class="muted">· PDF</span></li>
+        <li><a href="#" onclick="return false">Förderzusage KfW</a> <span class="muted">· PDF</span></li>
+        <li><a href="#" onclick="return false">Datenblatt Außeneinheit 16 kW</a> <span class="muted">· PDF</span></li>
+      </ul>
+    </section>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Muster Energie GmbH · Projektportal für Familie Mustermann · Version 2 · <a href="../">zur Originalversion</a></span>
+    <span>Entwurf: Alle Daten sind Beispieldaten. Fragen und Häkchen werden nur in Ihrem Browser gespeichert.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== Projektdaten: hier pflegen ===== */
+const ELEC_DATE = new Date('2026-11-12T08:00:00');
+const INSTALL_DATE = new Date('2026-11-24T07:30:00');
+
+const TIMELINE = [
+  {s:'done', when:'02.09.2026', what:'Beratung & Auftrag', desc:'Angebot angenommen'},
+  {s:'done', when:'18.09.2026', what:'Vor-Ort-Termin', desc:'Aufstellort und Heizraum geprüft'},
+  {s:'done', when:'07.10.2026', what:'Heizlast & Planung', desc:'Raumweise Berechnung fertig'},
+  {s:'done', when:'31.10.2026', what:'Förderzusage', desc:'KfW-Zusage liegt vor'},
+  {s:'now',  when:'bis 11.11.2026', what:'Ihre Vorbereitungen', desc:'Siehe Checkliste'},
+  {s:'next', key:1, when:'12.11.2026', what:'Elektrikertermin', desc:'Zählerschrank, Strom ca. 3 Std. aus'},
+  {s:'next', when:'13.–20.11.2026', what:'Öltank-Entsorgung', desc:'Immer nach dem Elektrikertermin'},
+  {s:'next', key:1, when:'24.–26.11.2026', what:'Wärmepumpen-Installation', desc:'Material kommt am 23.11.'},
+  {s:'next', when:'26.11.2026', what:'Inbetriebnahme', desc:'Abgleich und Einweisung'},
+]
+
+const ROOMS = [
+  // name, Stockwerk, m², °C, benötigte Heizlast W, vorhandene Leistung bei 55 °C (W) oder 'FBH'
+  ['Wohnzimmer','EG',38.5,20,3980,4200],
+  ['Küche','EG',14.2,20,1260,'FBH'],
+  ['Esszimmer','EG',16.8,20,1640,'FBH'],
+  ['Arbeitszimmer','EG',12.4,20,1380,1520],
+  ['Flur','EG',9.6,20,900,980],
+  ['Gäste-WC','EG',3.1,20,330,410],
+  ['Schlafzimmer','1. OG',18.6,20,2354,1500],
+  ['Kinderzimmer','1. OG',13.4,20,1500,935],
+  ['Kinderzimmer 2','1. OG',12.8,20,1420,1480],
+  ['Bad','1. OG',10.2,24,1460,'FBH'],
+  ['Flur','1. OG',8.3,20,680,760],
+  ['Hobbyraum','KG',7.5,20,806,880],
+];
+
+const PEOPLE = {
+  sb:{name:'Sarah Brandt', role:'Baubegleiterin · Ihre erste Ansprechpartnerin', init:'SB', color:'#132c52', tel:'+49 561 123456-12', mail:'s.brandt@muster-energie.de', lead:true},
+  dk:{name:'Dennis Karpfen', role:'Technische Planung · Fragen zu Heizlast und Auslegung', init:'DK', color:'#4a3b78', tel:'+49 561 123456-22', mail:'daddy.dennis@muster-energie.de'},
+  tw:{name:'Tobias Wendt', role:'Elektriker · Elektrikertermin am 12.11.', init:'TW', color:'#6b5d1f', tel:'+49 561 123456-35', mail:'t.wendt@muster-energie.de'},
+  my:{name:'Murat Yilmaz', role:'Montageleiter · Installation vor Ort', init:'MY', color:'#2d5a3d', tel:'+49 561 123456-30', mail:'m.yilmaz@muster-energie.de'},
+  lh:{name:'Lena Hoffmann', role:'Förderung & Rechnungen', init:'LH', color:'#7a4a12', tel:'+49 561 123456-41', mail:'foerderung@muster-energie.de'},
+  ks:{name:'Kundenservice', role:'Mo–Fr 8–18 Uhr', init:'KS', color:'#5b6577', tel:'+49 561 123456-0', mail:'service@muster-energie.de'},
+};
+
+const UPDATES = [
+  {d:'02.11.2026', by:'Sarah Brandt', t:'Elektrikertermin steht', x:'Tobias Wendt kommt am Do, 12.11., von 8 bis 12 Uhr. Die Öltanks werden danach entsorgt.'},
+  {d:'02.11.2026', by:'Sarah Brandt', t:'Ihre Planung ist fertig', x:'Heizlastberechnung und Auslegung sind jetzt hier für Sie hinterlegt.'},
+  {d:'31.10.2026', by:'Lena Hoffmann', t:'Förderzusage der KfW ist da', x:'Zugesagt sind 50 % der förderfähigen Kosten. Die Auszahlung beantragen wir nach der Inbetriebnahme mit Ihnen.'},
+  {d:'24.10.2026', by:'Sarah Brandt', t:'Installationstermin bestätigt', x:'24. bis 26.11.2026, Beginn jeweils 7:30 Uhr.'},
+];
+
+const CHECKLIST = [
+  {id:'tank', t:'Entsorgung der Öltanks klären', due:'09.11.2026', who:'Sie entscheiden',
+   d:'Den alten Ölkessel samt Leitungen bauen wir bei der Installation aus und entsorgen ihn, das ist im Preis enthalten. Die Öltanks werden vorher von einem Fachbetrieb abgepumpt, gereinigt und abtransportiert, und zwar immer <b>nach dem Elektrikertermin</b> (zwischen 13. und 20.11.). Bitte wählen Sie:',
+   choice:[
+     {v:'wir', b:'Das soll Muster Energie organisieren', s:'Unser Partnerbetrieb kommt zwischen 13. und 20.11. Festpreis 790 € für bis zu 3 Kunststofftanks inkl. Restöl-Absaugung, Abrechnung über uns.'},
+     {v:'selbst', b:'Wir kümmern uns selbst', s:'Bitte beauftragen Sie einen zertifizierten Fachbetrieb für einen Termin nach dem 12.11. und schreiben Sie uns den Termin.'}
+   ]},
+  {id:'zaehler', t:'Zählerschrank frei zugänglich machen', due:'12.11.2026', who:'Sie', d:'Für den Elektrikertermin: Zählerschrank und der Weg dorthin sollten frei sein. An diesem Vormittag ist der Strom im Haus etwa 3 Stunden aus, bitte Kühlschrank und Gefriertruhe geschlossen lassen.'},
+  {id:'hk', t:'Über den Heizkörpertausch entscheiden', due:'13.11.2026', who:'Sie', d:'Optional für Schlafzimmer und Kinderzimmer. Nur bei Bestellung bis 13.11. direkt am Installationstag möglich.', link:['#heizkoerper','Zum Heizkörpertausch']},
+  {id:'graben', t:'Graben zur Außeneinheit ausheben', due:'20.11.2026', who:'Sie oder ein Gartenbauer', d:'Länge ca. 2 m, Tiefe 60–70 cm, Breite 20 cm. Verlauf siehe Skizze in Kapitel 1.', link:['#termin','Zur Skizze']},
+  {id:'baum', t:'Baum und Pflanzen am Aufstellort entfernen', due:'20.11.2026', who:'Sie', d:'Fläche von ca. 1,50 × 1,00 m frei machen, damit wir das Fundament setzen können.'},
+  {id:'oeltank', t:'Öltanks sind entsorgt', due:'20.11.2026', who:'Partnerbetrieb oder Sie', d:'Findet nach dem Elektrikertermin statt (13.–20.11.). Der Heizungsraum muss danach für die neue Anlage frei sein.'},
+  {id:'wasch', t:'Waschmaschine und Trockner aus dem Heizraum räumen', due:'23.11.2026', who:'Sie', d:'Vorübergehend reicht ein anderer Kellerraum. Wo sie danach wieder stehen können, zeigt Ihnen Murat Yilmaz am ersten Tag.'},
+  {id:'gang', t:'Gang zum Heizungsraum freiräumen', due:'23.11.2026', who:'Sie', d:'Mindestens 1 m breit, damit wir die Altanlage raus- und die neue Anlage reinbringen können.'},
+  {id:'carport', t:'Carport für die Lieferung frei halten', due:'23.11.2026', who:'Sie', d:'Die Spedition stellt dort 2 Paletten ab (ca. 2 × 1,2 m). Sie müssen nicht zu Hause sein.'},
+];
+
+const OPTIONAL = [
+  {id:'app', t:'Enpal App herunterladen', due:'vor dem 26.11.', who:'Sie', d:'Mit der App sehen Sie Verbrauch und Temperaturen Ihrer Wärmepumpe, ändern Zeitprogramme und erreichen den Service. Bei der Einweisung verbinden wir die App mit Ihrer Anlage.', stores:true},
+  {id:'video', t:'Einweisungsvideo der Wärmepumpe ansehen', due:'vor dem 26.11.', who:'Sie', d:'In 8 Minuten: Bedienteil, Heizkurve, Warmwasser, Urlaubsmodus und was bei einer Störmeldung zu tun ist. Dann bleibt bei der Einweisung mehr Zeit für Ihre Fragen.', video:true},
+];
+
+const FAQ = [
+  ['Wie lange sind wir ohne Heizung und Warmwasser?', 'Beim Elektrikertermin gar nicht, nur der Strom ist etwa 3 Stunden aus. Bei der Wärmepumpen-Installation ist die Heizung ab dem ersten Vormittag aus und am Abend des dritten Tages wieder an. Warmwasser gibt es in der Regel ab dem zweiten Abend wieder. Bei Frost bringen wir auf Wunsch Elektroheizer mit.'],
+  ['Warum gibt es zwei Termine?', 'Zuerst bereitet unser Elektriker den Zählerschrank vor und legt die Leitung zur Außeneinheit. Erst danach können die Öltanks entsorgt und die Wärmepumpe installiert werden. So ist am Installationstag alles vorbereitet und es gibt keine Wartezeiten.'],
+  ['Wie laut ist die Außeneinheit?', 'Im Nachtmodus etwa 35 dB(A) in 3 m Abstand, das ist ungefähr Flüsterlautstärke. Die Grenzwerte zum Nachbargrundstück (TA Lärm) haben wir bei der Planung geprüft.'],
+  ['Was ist der hydraulische Abgleich und muss ich etwas tun?', 'Wir stellen an jedem Heizkörper ein, wie viel Heizwasser durchfließen darf, damit jeder Raum gleichmäßig warm wird. Sie müssen nichts tun. Wichtig: Ventile danach nicht verstellen, die Thermostatköpfe dürfen Sie aber ganz normal drehen. <a href="#abgleich">Ihre Werte ansehen</a>'],
+  ['Kann ich die Thermostate wie bisher benutzen?', 'Ja. Am sparsamsten läuft die Wärmepumpe, wenn die Thermostate in den Wohnräumen weit offen sind (Stufe 3 bis 4) und die Wärmepumpe die Temperatur über die Heizkurve regelt. Nachts ganz herunterdrehen lohnt sich bei Wärmepumpen meist nicht.'],
+  ['Was passiert bei einem Stromausfall?', 'Die Wärmepumpe geht aus und startet automatisch wieder, sobald der Strom zurück ist. Ihr Haus und der Warmwasserspeicher halten die Wärme in der Zwischenzeit mehrere Stunden.'],
+  ['Brauche ich einen speziellen Stromtarif?', 'Nicht zwingend, aber ein Wärmepumpentarif ist meist 20 bis 30 % günstiger. Dafür setzt der Elektriker beim ersten Termin einen zweiten Zähler oder nutzt das Modul 1 bzw. 2 nach § 14a EnWG. Wir beraten Sie gern dazu.'],
+  ['Wie oft muss die Wärmepumpe gewartet werden?', 'Wir empfehlen eine Wartung alle zwei Jahre. Anders als beim Ölkessel gibt es keinen Schornsteinfeger und keine Abgasmessung mehr.'],
+  ['Wann bekommen wir die Förderung ausgezahlt?', 'Nach der Inbetriebnahme schicken wir Ihnen die Bestätigung (inkl. Protokoll zum hydraulischen Abgleich). Damit beantragen Sie die Auszahlung bei der KfW, meist ist das Geld 4 bis 8 Wochen später auf Ihrem Konto. Lena Hoffmann hilft Ihnen dabei.'],
+];
+
+
+const QA_SEED = [
+  {id:'s1', d:'29.10.2026', q:'Müssen wir an den Installationstagen zu Hause sein?', a:{p:'my', d:'29.10.2026', x:'Am ersten Tag um 7:30 Uhr bitte ja, damit wir kurz alles gemeinsam ansehen. Danach reicht es, wenn wir in den Keller kommen. Am dritten Tag nachmittags machen wir die Einweisung, dafür planen Sie bitte eine Stunde ein.'}},
+  {id:'s2', d:'27.10.2026', q:'Wie laut ist die Außeneinheit nachts? Das Schlafzimmer unserer Nachbarn liegt auf dieser Seite.', a:{p:'sb', d:'27.10.2026', x:'Im Nachtmodus sind es etwa 35 dB(A) in 3 m Abstand, ungefähr so laut wie Flüstern. Den Abstand zum Nachbargrundstück haben wir geprüft, die Grenzwerte der TA Lärm werden eingehalten.'}},
+  {id:'s3', d:'21.10.2026', q:'Bleibt die Fußbodenheizung im Bad und in der Küche erhalten?', a:{p:'sb', d:'22.10.2026', x:'Ja. Die Fußbodenheizung bleibt und läuft mit der Wärmepumpe sogar besonders effizient, weil sie mit niedriger Temperatur auskommt.'}},
+];
+
+/* ===== Hilfsfunktionen ===== */
+const $ = s => document.querySelector(s);
+const fmt = (n, d=0) => n.toLocaleString('de-DE',{minimumFractionDigits:d, maximumFractionDigits:d});
+const store = {
+  get(k, fb){ try{ const v = localStorage.getItem('wpaeb2_'+k); return v ? JSON.parse(v) : fb; }catch(e){ return fb; } },
+  set(k, v){ try{ localStorage.setItem('wpaeb2_'+k, JSON.stringify(v)); }catch(e){} }
+};
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('show'),3200); }
+
+/* Countdown bis zum nächsten Termin */
+(function(){
+  const now=new Date(), el=$('#countdown');
+  const next = now < ELEC_DATE ? ['Elektrikertermin', ELEC_DATE, '#dateElec'] : now < INSTALL_DATE ? ['Installation', INSTALL_DATE, '#dateWp'] : null;
+  document.querySelectorAll('.date-row').forEach(r=>r.classList.remove('next'));
+  if (!next){ el.style.display='none'; return; }
+  $(next[2]).classList.add('next');
+  if (next[2]==='#dateWp'){ $('#dateWp .date-ic svg').setAttribute('stroke','#0b1f3b'); $('#dateElec .date-ic svg').setAttribute('stroke','#fff'); }
+  const days=Math.ceil((next[1]-now)/86400000);
+  el.textContent = next[0]+' '+(days>1?'in '+days+' Tagen':days===1?'morgen':'heute');
+})();
+
+/* Timeline */
+(function(){
+  const tl = $('#tl');
+  tl.style.setProperty('--n', TIMELINE.length);
+  tl.innerHTML = TIMELINE.map(i => `<li class="${i.s}${i.key?' key':''}"><span class="dot">${i.s==='done'?'<svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#fff" stroke-width="2" fill="none"/></svg>':''}</span><div class="when">${i.when}</div><div class="what">${i.what}</div><div class="desc">${i.desc}</div></li>`).join('');
+})();
+
+/* Räume */
+(function(){
+  const tb = $('#roomTable tbody');
+  let area=0, load=0;
+  tb.innerHTML = ROOMS.map(([n,f,a,t,need,have]) => {
+    area+=a; load+=need;
+    let status;
+    if (have==='FBH') status = '<span class="tag info">Fußbodenheizung</span>';
+    else if (have >= need) status = '<span class="tag ok">reicht aus</span>';
+    else status = `<span class="tag warn">Tausch empfohlen</span> <span class="muted num" style="font-size:.82rem">${fmt(have)} W vorhanden</span>`;
+    return `<tr${have!=='FBH'&&have<need?' class="hl"':''}><td><b>${n}</b> <span class="muted">${f}</span></td><td class="r num">${fmt(a,1)} m²</td><td class="r num">${t} °C</td><td class="r num">${fmt(need)} W</td><td>${status}</td></tr>`;
+  }).join('');
+  $('#sumArea').textContent = fmt(area,1)+' m²';
+  $('#sumLoad').textContent = fmt(load/1000,2)+' kW';
+})();
+
+/* Betriebskosten-Rechner */
+(function(){
+  const HEAT=23480, DHW=3200, JAZ=3.07, BASE_T=21, PER_DEG=0.06;
+  const temp=$('#temp'), price=$('#price');
+  function calc(){
+    const t=parseFloat(temp.value), p=Math.max(0, parseFloat(String(price.value).replace(',','.'))||0);
+    const heat=HEAT*Math.max(0.4, 1+PER_DEG*(t-BASE_T));
+    const total=heat+DHW, el=total/JAZ, cost=el*p;
+    $('#tempOut').textContent = fmt(t, t%1?1:0)+' °C';
+    $('#costOut').textContent = fmt(Math.round(cost))+' €';
+    $('#costMonth').textContent = 'ca. '+fmt(Math.round(cost/12))+' € im Monat';
+    $('#steps').innerHTML = `
+      <li><span>Heizwärme bei Ø ${fmt(t, t%1?1:0)} °C</span><b>${fmt(Math.round(heat))} kWh</b></li>
+      <li><span>+ Warmwasser (4 Personen)</span><b>${fmt(DHW)} kWh</b></li>
+      <li><span>÷ Jahresarbeitszahl</span><b>3,07</b></li>
+      <li><span>= Strombedarf</span><b>${fmt(Math.round(el))} kWh</b></li>
+      <li><span>× Strompreis</span><b>${fmt(p,2)} €/kWh</b></li>`;
+    document.querySelectorAll('#presets button').forEach(b => b.classList.toggle('on', parseFloat(b.dataset.t)===t));
+  }
+  temp.addEventListener('input', calc); price.addEventListener('input', calc);
+  $('#presets').addEventListener('click', e => { const b=e.target.closest('button'); if(!b) return; temp.value=b.dataset.t; calc(); });
+  calc();
+})();
+
+/* Ansprechpartner */
+(function(){
+  const ic = {
+    tel:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+    mail:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>'
+  };
+  $('#contacts').innerHTML = Object.values(PEOPLE).map(p => `
+    <div class="person${p.lead?' lead-person':''}">
+      <span class="av" style="background:${p.color}">${p.init}</span>
+      <div class="name">${p.name}</div>
+      <div class="role">${p.role}</div>
+      <div class="links">
+        <a href="tel:${p.tel.replace(/[^+\d]/g,'')}">${ic.tel}${p.tel.replace('+49 ','0')}</a>
+        <a href="mailto:${p.mail}?subject=Projekt%20WP-2026-04817">${ic.mail}E-Mail</a>
+      </div>
+    </div>`).join('');
+})();
+
+/* Neuigkeiten */
+$('#updates').innerHTML = UPDATES.map(u => `<li><div class="u-meta">${u.d} · ${u.by}</div><div class="u-title">${u.t}</div><div class="u-text">${u.x}</div></li>`).join('');
+
+/* Checkliste */
+(function(){
+  const state = store.get('checklist', {});
+  const choice = store.get('tankChoice', null);
+  const ul = $('#cl');
+  ul.innerHTML = CHECKLIST.map(c => `
+    <li data-id="${c.id}">
+      <input type="checkbox" id="c_${c.id}" ${state[c.id]?'checked':''} aria-describedby="d_${c.id}">
+      <label class="cl-title" for="c_${c.id}">${c.t}</label>
+      <div class="cl-meta"><span class="due">bis ${c.due}</span><span>Wer: ${c.who}</span>${c.link?`<a href="${c.link[0]}">${c.link[1]}</a>`:''}</div>
+      <div class="cl-desc" id="d_${c.id}">${c.d}</div>
+      ${c.choice?`<div class="choice">${c.choice.map(o=>`<label><input type="radio" name="tank" value="${o.v}" ${choice===o.v?'checked':''}><span><b>${o.b}</b>${o.s}</span></label>`).join('')}</div>`:''}
+    </li>`).join('');
+  function update(){
+    let done=0;
+    ul.querySelectorAll('li[data-id]').forEach(li => { const on=li.querySelector('input[type=checkbox]').checked; li.classList.toggle('done', on); if(on) done++; });
+    const n=CHECKLIST.length, pct=Math.round(done/n*100);
+    $('#clBar').style.width=pct+'%'; $('#heroBar').style.width=pct+'%';
+    $('#clCount').textContent = done+' / '+n+' erledigt';
+    $('#heroCount').textContent = done+' von '+n;
+  }
+  ul.addEventListener('change', e => {
+    if (e.target.type==='checkbox'){
+      const id=e.target.closest('li').dataset.id; state[id]=e.target.checked; store.set('checklist', state); update();
+    }
+    if (e.target.name==='tank'){
+      store.set('tankChoice', e.target.value);
+      const cb=$('#c_tank'); cb.checked=true; state.tank=true; store.set('checklist', state); update();
+      toast(e.target.value==='wir' ? 'Danke! Sarah Brandt meldet sich mit einem Termin für die Tankentsorgung.' : 'Danke! Bitte schicken Sie uns den Termin Ihres Fachbetriebs.');
+    }
+  });
+  update();
+})();
+
+/* Fragen & Antworten */
+(function(){
+  const own = store.get('questions', []);
+  function render(){
+    const all = [...own.slice().reverse(), ...QA_SEED];
+    $('#qa').innerHTML = all.map(i => {
+      const head = `<div class="q"><div class="meta"><span>Familie Mustermann</span><span>${i.d}</span>${i.a?'<span class="tag ok">beantwortet</span>':'<span class="tag warn">offen</span>'}</div><div class="txt">${esc(i.q)}</div></div>`;
+      if (i.a){ const p=PEOPLE[i.a.p]; return `<li>${head}<div class="a"><span class="av" style="background:${p.color}">${p.init}</span><div><div class="meta"><b style="color:var(--navy)">${p.name}</b><span>${i.a.d}</span></div><div class="txt">${esc(i.a.x)}</div></div></div></li>`; }
+      return `<li>${head}<div class="pending">Ihre Frage ist bei Sarah Brandt angekommen. Die Antwort erscheint hier, meist innerhalb eines Werktags.</div></li>`;
+    }).join('');
+  }
+  $('#askForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = $('#q').value.trim(); if(!v) return;
+    own.push({id:'u'+Date.now(), d:new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'}), q:v});
+    store.set('questions', own); $('#q').value=''; render();
+    toast('Ihre Frage wurde gesendet.');
+  });
+  $('#orderRad').addEventListener('click', () => {
+    const q=$('#q'); q.value='Wir möchten den Heizkörpertausch im Schlafzimmer und im Kinderzimmer (1. OG) zum Festpreis beauftragen. Bitte schicken Sie uns die Auftragsbestätigung.';
+    document.getElementById('fragen').scrollIntoView({behavior:'smooth'}); setTimeout(()=>q.focus({preventScroll:true}),500);
+  });
+  render();
+})();
+
+/* Optionale Schritte */
+(function(){
+  const st = store.get('optional', {});
+  const ul = $('#clOpt');
+  ul.innerHTML = OPTIONAL.map(c => `
+    <li class="opt" data-oid="${c.id}">
+      <input type="checkbox" id="o_${c.id}" ${st[c.id]?'checked':''}>
+      <label class="cl-title" for="o_${c.id}">${c.t}</label>
+      <div class="cl-meta"><span class="due">${c.due}</span><span>Wer: ${c.who}</span></div>
+      <div class="cl-desc">${c.d}</div>
+      ${c.stores?`<div class="store-btns"><a href="https://apps.apple.com/de/search?term=enpal" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.6 1.3-.1 1.7-.8 3.3-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.5.9-1.4 1.3-2.8 1.3-2.9-.1 0-2.6-1-2.6-3.9zM13.9 4.9c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg>App Store</a><a href="https://play.google.com/store/search?q=enpal&c=apps" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M4 2.5v19l10-9.5zM15.5 13.4l2.6 2.5-11.6 6.6zM15.5 10.6 6.5 1.5l11.6 6.6zM19.3 9.2 22 10.8c.9.6.9 1.8 0 2.4l-2.7 1.6-2.8-2.8z"/></svg>Google Play</a></div>`:''}
+      ${c.video?`<button type="button" class="video" id="videoBtn"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0b1f3b"><path d="M8 5v14l11-7z"/></svg></span><span class="cap">Ihre Wärmepumpe im Alltag</span><span class="dur">8:12</span></button>`:''}
+    </li>`).join('');
+  const sync = () => ul.querySelectorAll('li').forEach(li => li.classList.toggle('done', li.querySelector('input').checked));
+  ul.addEventListener('change', e => { if(e.target.type!=='checkbox') return; st[e.target.closest('li').dataset.oid]=e.target.checked; store.set('optional', st); sync(); });
+  $('#videoBtn').addEventListener('click', () => { toast('Im Prototyp ist noch kein Video hinterlegt.'); const cb=$('#o_video'); if(!cb.checked){ cb.checked=true; st.video=true; store.set('optional', st); sync(); } });
+  sync();
+})();
+
+/* FAQ */
+$('#faqList').innerHTML = FAQ.map(([q,a]) => `<details><summary>${q}</summary><div class="ans"><p>${a}</p></div></details>`).join('');
+
+/* Hydraulischer Abgleich */
+(function(){
+  // Raum-Index in ROOMS, ob neu getauscht
+  const NEW = {'Schlafzimmer':true, 'Kinderzimmer':true};
+  const step = f => f<=60?'1':f<=100?'2':f<=160?'3':f<=250?'4':f<=350?'5':'6';
+  const rows = ROOMS.map(([n,fl,a,t,need,have]) => {
+    const fbh = have==='FBH', dt = fbh?5:7, flow = need/(1.163*dt);
+    return {n, fl, need, fbh, dt, flow, set: fbh ? 'Verteiler-Kreis' : (NEW[n] ? 'neues Ventil, Stufe '+step(flow) : 'Stufe '+step(flow))};
+  });
+  const max = Math.max(...rows.map(r=>r.flow));
+  $('#flowTable tbody').innerHTML = rows.map(r => `<tr><td><b>${r.n}</b> <span class="muted">${r.fl}</span>${r.fbh?' <span class="tag info">FBH</span>':''}</td><td class="r num" data-l="Heizlast">${fmt(r.need)} W</td><td class="r num" data-l="Spreizung">${r.dt} K</td><td class="num" data-l="Durchfluss"><span class="flowbar${r.fbh?' fbh':''}" style="width:${Math.max(4,Math.round(r.flow/max*90))}px"></span>${fmt(Math.round(r.flow))} l/h</td><td class="r" data-l="Voreinstellung">${r.set}</td></tr>`).join('');
+  const sum = rows.reduce((x,r)=>x+r.flow,0), sumW = rows.reduce((x,r)=>x+r.need,0);
+  $('#fSum').textContent = fmt(Math.round(sum))+' l/h'; $('#fSumW').textContent = fmt(sumW/1000,2)+' kW';
+})();
+
+/* Heizkurve (Expertenmodus) */
+(function(){
+  const svg = $('#hc'), NS='http://www.w3.org/2000/svg';
+  const W=680,H=340,L=46,Rr=16,T=30,B=40, xMin=-15,xMax=20,yMin=15,yMax=60;
+  const X = t => L+(t-xMin)/(xMax-xMin)*(W-L-Rr), Y = v => T+(yMax-v)/(yMax-yMin)*(H-T-B);
+  const TI=20, TN=-12, HG=15;
+  const load = ta => Math.max(0,(TI-ta)/(TI-TN));
+  const vl  = ta => ta>HG ? null : TI + 35*Math.pow(load(ta),1/1.3);
+  const rl  = ta => ta>HG ? null : vl(ta) - 7*load(ta);
+  const fbh = ta => ta>HG ? null : TI + 15*Math.pow(load(ta),1/1.1);
+  const el = (n,a,p=svg) => { const e=document.createElementNS(NS,n); for(const k in a) e.setAttribute(k,a[k]); p.appendChild(e); return e; };
+  const txt = (x,y,str,a={}) => { const e=el('text',{x,y,'font-size':12,fill:'#5b6577','font-family':'Figtree,sans-serif',...a}); e.textContent=str; return e; };
+  // grid + axes
+  for(let v=20; v<=60; v+=10){ el('line',{x1:L,x2:W-Rr,y1:Y(v),y2:Y(v),stroke:'#e2e5ea','stroke-width':1}); txt(L-8,Y(v)+4,v+'°',{'text-anchor':'end'}); }
+  for(let t=-15; t<=20; t+=5){ txt(X(t),H-B+18,(t>0?'+':'')+t+'°',{'text-anchor':'middle'}); }
+  el('line',{x1:L,x2:W-Rr,y1:H-B,y2:H-B,stroke:'#9aa3b2','stroke-width':1});
+  txt(W-Rr,H-6,'Außentemperatur',{'text-anchor':'end'}); txt(L-38,12,'Vorlauftemperatur',{'text-anchor':'start','font-size':11});
+  // Heizgrenze
+  el('line',{x1:X(HG),x2:X(HG),y1:T,y2:H-B,stroke:'#9aa3b2','stroke-dasharray':'3 4'});
+  txt(X(HG)+5,T+12,'Heizgrenze 15 °C',{'font-size':11});
+  // Normaußentemperatur
+  el('line',{x1:X(TN),x2:X(TN),y1:T,y2:H-B,stroke:'#9aa3b2','stroke-dasharray':'3 4'});
+  txt(X(TN)+5,T+12,'Auslegung −12 °C',{'font-size':11});
+  const path = f => { let d=''; for(let t=xMin; t<=HG+0.001; t+=0.25){ const v=f(Math.max(t,xMin)); d+=(d?'L':'M')+X(t).toFixed(1)+' '+Y(v).toFixed(1); } return d; };
+  el('path',{d:path(vl),fill:'none',stroke:'#2a64b0','stroke-width':2.5,'stroke-linejoin':'round'});
+  el('path',{d:path(rl),fill:'none',stroke:'#c2410c','stroke-width':2.5,'stroke-dasharray':'6 4'});
+  el('path',{d:path(fbh),fill:'none',stroke:'#2f8f5b','stroke-width':2.5,'stroke-dasharray':'1.5 4','stroke-linecap':'round'});
+  // design point marker
+  el('circle',{cx:X(TN),cy:Y(55),r:5,fill:'#2a64b0',stroke:'#fff','stroke-width':2});
+  txt(X(TN)+10,Y(55)-8,'55 °C',{fill:'#0b1f3b','font-weight':700});
+  // hover layer
+  const cross = el('line',{y1:T,y2:H-B,stroke:'#0b1f3b','stroke-width':1,opacity:0});
+  const dots = ['#2a64b0','#c2410c','#2f8f5b'].map(c=>el('circle',{r:4.5,fill:c,stroke:'#fff','stroke-width':2,opacity:0}));
+  const hit = el('rect',{x:L,y:T,width:W-L-Rr,height:H-T-B,fill:'transparent'});
+  const tip = $('#hcTip'), wrap = $('#hcWrap');
+  function show(clientX){
+    const r = svg.getBoundingClientRect(), sx = (clientX-r.left)/r.width*W;
+    let t = Math.round((xMin + (sx-L)/(W-L-Rr)*(xMax-xMin))*2)/2; t=Math.min(xMax,Math.max(xMin,t));
+    cross.setAttribute('x1',X(t)); cross.setAttribute('x2',X(t)); cross.setAttribute('opacity',.35);
+    const vals=[vl(t),rl(t),fbh(t)];
+    dots.forEach((d,i)=>{ if(vals[i]==null){ d.setAttribute('opacity',0); return; } d.setAttribute('cx',X(t)); d.setAttribute('cy',Y(vals[i])); d.setAttribute('opacity',1); });
+    tip.innerHTML = `<b>Außen ${fmt(t,t%1?1:0)} °C</b>` + (vals[0]==null ? '<div class="muted">Über der Heizgrenze: Heizung aus, nur Warmwasser.</div>' :
+      `<div class="row"><span><span class="sw" style="background:#2a64b0"></span>Vorlauf HK</span><b>${fmt(vals[0],1)} °C</b></div><div class="row"><span><span class="sw" style="background:#c2410c"></span>Rücklauf HK</span><b>${fmt(vals[1],1)} °C</b></div><div class="row"><span><span class="sw" style="background:#2f8f5b"></span>Vorlauf FBH</span><b>${fmt(vals[2],1)} °C</b></div><div class="muted" style="margin-top:3px">Wärmebedarf ${fmt(load(t)*100,0)} % · ${fmt(load(t)*17.71,1)} kW</div>`);
+    const px = X(t)/W*r.width, wr = wrap.getBoundingClientRect().width;
+    tip.style.left = Math.min(Math.max(0,px+12), wr-190)+'px'; tip.style.top='8px'; tip.style.opacity=1;
+  }
+  const hide = () => { tip.style.opacity=0; cross.setAttribute('opacity',0); dots.forEach(d=>d.setAttribute('opacity',0)); };
+  hit.addEventListener('pointermove', e => show(e.clientX));
+  hit.addEventListener('pointerdown', e => show(e.clientX));
+  hit.addEventListener('pointerleave', hide);
+})();
+
+/* Aktiver Menüpunkt */
+(function(){
+  const links=[...document.querySelectorAll('.topnav a')];
+  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=map.get(e.target.id); if(a){ a.classList.add('active'); const nav=a.parentElement; const x=a.offsetLeft-nav.offsetLeft; if(x<nav.scrollLeft||x+a.offsetWidth>nav.scrollLeft+nav.clientWidth){ nav.scrollTo({left:Math.max(0,x-16)}); } } } }); },{rootMargin:'-45% 0px -50% 0px'});
+  map.forEach((a,id)=>{ const s=document.getElementById(id); if(s) io.observe(s); });
+})();
+</script>
+</body>
+</html>
