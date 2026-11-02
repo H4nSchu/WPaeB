@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ihre Wärmepumpenplanung · Familie Mustermann</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3b;
+  --navy-2:#132c52;
+  --yellow:#ffd60a;
+  --yellow-soft:#fff6c7;
+  --bg:#f4f5f7;
+  --card:#ffffff;
+  --text:#0b1f3b;
+  --muted:#5b6577;
+  --line:#e2e5ea;
+  --green:#1d8a4e;
+  --green-soft:#e5f4ec;
+  --orange:#b85c00;
+  --orange-soft:#fdf0e1;
+  --radius:16px;
+  --radius-sm:10px;
+  --gutter:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{line-height:1.2;margin:0}
+h2{font-size:1.45rem;font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0 0 .8em}
+.num{font-variant-numeric:tabular-nums}
+button{font:inherit;cursor:pointer}
+
+/* Header */
+.topbar{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff}
+.topbar-inner{max-width:1400px;margin:0 auto;padding:0 var(--gutter);height:60px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;text-decoration:none;white-space:nowrap}
+.brand-mark{width:28px;height:28px;border-radius:8px;background:var(--yellow);display:grid;place-items:center}
+.brand small{font-weight:500;opacity:.7;font-size:.85rem;margin-left:4px}
+.topnav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:#fff;text-decoration:none;font-size:.9rem;font-weight:600;padding:7px 12px;border-radius:999px;white-space:nowrap;opacity:.85}
+.topnav a:hover{background:rgba(255,255,255,.1);opacity:1}
+.topnav a.active{background:var(--yellow);color:var(--navy);opacity:1}
+@media (max-width:899px){
+  .topbar-inner{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:8px;gap:8px}
+  .topnav{margin-left:0;width:calc(100% + 2*var(--gutter));margin-right:calc(-1*var(--gutter));padding-right:var(--gutter)}
+  .topnav a{padding:6px 11px;font-size:.85rem}
+  html{scroll-padding-top:104px}
+}
+
+/* Hero */
+.hero{background:var(--navy);color:#fff;padding:28px 0 32px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 var(--gutter)}
+.hero-grid{display:grid;gap:24px}
+.eyebrow{font-size:.85rem;font-weight:600;color:var(--yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.hero h1{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.hero p.lead{color:#c9d3e3;max-width:640px;font-size:1.02rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.9rem;color:#c9d3e3;margin-top:14px}
+.hero-meta b{color:#fff;font-weight:600}
+.next-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:20px}
+.next-card .label{font-size:.85rem;color:#c9d3e3}
+.next-card .big{font-size:1.6rem;font-weight:800;margin:4px 0 2px}
+.next-card .days{display:inline-block;background:var(--yellow);color:var(--navy);font-weight:700;border-radius:999px;padding:3px 12px;font-size:.88rem;margin-top:8px}
+.progress{height:8px;background:rgba(255,255,255,.15);border-radius:999px;overflow:hidden;margin:16px 0 6px}
+.progress span{display:block;height:100%;background:var(--yellow);border-radius:999px;transition:width .4s}
+.next-card .small{font-size:.85rem;color:#c9d3e3}
+.next-card a.inline{color:var(--yellow);font-weight:600}
+@media (min-width:900px){.hero-grid{grid-template-columns:1fr 380px;align-items:end}.hero{padding:44px 0 48px}}
+
+/* Layout */
+.layout{display:grid;gap:20px;padding:24px 0 48px}
+@media (min-width:1100px){
+  .layout{grid-template-columns:minmax(0,1fr) 360px;gap:28px;padding-top:28px}
+  .side{position:sticky;top:80px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;scrollbar-width:thin}
+}
+.main{display:flex;flex-direction:column;gap:20px;min-width:0}
+.side{display:flex;flex-direction:column;gap:20px}
+.card{background:var(--card);border-radius:var(--radius);padding:22px;border:1px solid var(--line)}
+@media (min-width:700px){.card{padding:28px}}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.sec-no{flex:none;width:32px;height:32px;border-radius:9px;background:var(--yellow);color:var(--navy);font-weight:800;display:grid;place-items:center;font-size:1rem;transform:translateY(5px)}
+.sec-head p{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+.muted{color:var(--muted)}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.tag.ok{background:var(--green-soft);color:var(--green)}
+.tag.warn{background:var(--orange-soft);color:var(--orange)}
+.tag.info{background:#e8eef8;color:var(--navy-2)}
+
+/* Timeline */
+.tl{list-style:none;margin:6px 0 0;padding:0;position:relative}
+.tl li{position:relative;padding:0 0 20px 34px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:10px;top:22px;bottom:-2px;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl li.done::before{background:var(--navy)}
+.dot{position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center}
+.tl li.done .dot{background:var(--navy);border-color:var(--navy)}
+.tl li.now .dot{border-color:var(--navy);background:var(--yellow);box-shadow:0 0 0 5px var(--yellow-soft)}
+.tl .when{font-size:.82rem;font-weight:600;color:var(--muted)}
+.tl .what{font-weight:700}
+.tl .desc{font-size:.92rem;color:var(--muted)}
+.tl li.now .what::after{content:"Sie sind hier";margin-left:8px;font-size:.72rem;font-weight:700;background:var(--navy);color:#fff;border-radius:999px;padding:2px 8px;vertical-align:2px}
+@media (min-width:1100px){
+  .tl{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:0}
+  .tl li{padding:36px 14px 0 0}
+  .tl li::before{left:22px;right:0;top:10px;bottom:auto;width:auto;height:2px}
+  .tl li:last-child::before{display:none}
+  .dot{top:0}
+  .tl .desc{font-size:.86rem}
+  .tl li.now .what::after{display:block;width:max-content;margin:6px 0 0}
+}
+
+/* Updates */
+.updates{list-style:none;margin:0;padding:0}
+.updates li{padding:12px 0;border-top:1px solid var(--line)}
+.updates li:first-child{border-top:0;padding-top:0}
+.updates .u-meta{font-size:.8rem;color:var(--muted)}
+.updates .u-title{font-weight:700;font-size:.95rem}
+.updates .u-text{font-size:.9rem;color:var(--muted);margin-top:2px}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto;margin:0 calc(-1 * 4px)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700;background:#fafbfc}
+td.r,th.r{text-align:right}
+tbody tr:last-child td{border-bottom:0}
+tr.hl td{background:var(--orange-soft)}
+td.r{white-space:nowrap}
+@media (max-width:599px){
+  #roomTable thead{display:none}
+  #roomTable tbody tr{display:flex;flex-wrap:wrap;align-items:baseline;border-bottom:1px solid var(--line);padding:10px 4px}
+  #roomTable tbody tr.hl{background:var(--orange-soft)}
+  #roomTable tbody td{border:0;padding:0;background:none}
+  #roomTable tbody td:nth-child(1){flex:0 0 calc(100% - 96px)}
+  #roomTable tbody td:nth-child(4){order:2;font-weight:700;flex:0 0 96px;text-align:right}
+  #roomTable tbody td:nth-child(2),#roomTable tbody td:nth-child(3){order:3;font-size:.85rem;color:var(--muted);text-align:left;margin-right:12px}
+  #roomTable tbody td:nth-child(5){order:4;flex-basis:100%;margin-top:6px}
+  #roomTable tfoot tr{display:flex;justify-content:space-between}
+  #radTable thead{display:none}
+  #radTable tbody tr{display:block;padding:10px 4px;border-bottom:1px solid var(--line)}
+  #radTable tbody td:first-child{display:block}
+  #radTable tbody td{display:flex;justify-content:space-between;border:0;padding:2px 0}
+  #radTable tbody td[data-l]::before{content:attr(data-l);color:var(--muted)}
+  #roomTable tfoot th:nth-child(3),#roomTable tfoot th:nth-child(5){display:none}
+}
+.facts{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:11px 14px;border-top:1px solid var(--line)}
+.facts div:first-child{border-top:0}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:700;text-align:right}
+@media (min-width:700px){
+  .facts{grid-template-columns:1fr 1fr}
+  .facts div:nth-child(2){border-top:0}
+  .facts div:nth-child(odd){border-right:1px solid var(--line)}
+}
+
+.signed{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.signed li{display:flex;gap:10px;align-items:flex-start}
+.check-ic{flex:none;width:20px;height:20px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;margin-top:2px}
+
+.split{display:grid;gap:20px;margin-top:22px}
+@media (min-width:800px){.split{grid-template-columns:1fr 1.25fr;align-items:start}}
+.sketch{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fbfbf8;overflow:hidden}
+.sketch svg{display:block;width:100%;height:auto}
+.sketch figcaption{font-size:.8rem;color:var(--muted);padding:8px 12px;border-top:1px solid var(--line);background:#fff}
+
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:4px 0 18px}
+@media (min-width:700px){.kpis{grid-template-columns:repeat(3,1fr)}}
+.kpi{border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px}
+.kpi .k{font-size:.82rem;color:var(--muted)}
+.kpi .v{font-size:1.35rem;font-weight:800;letter-spacing:-.01em}
+.kpi .v small{font-size:.85rem;font-weight:600;color:var(--muted)}
+.kpi.accent{background:var(--yellow-soft);border-color:#f3e3a0}
+.kpi sup a{text-decoration:none;color:var(--navy-2);font-weight:700}
+
+.calc{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.calc-head{padding:14px 16px;background:#fafbfc;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline}
+.calc-body{padding:16px;display:grid;gap:18px}
+@media (min-width:800px){.calc-body{grid-template-columns:1fr 1fr}}
+.field label{display:flex;justify-content:space-between;font-weight:600;font-size:.92rem;margin-bottom:6px}
+input[type=range]{width:100%;accent-color:var(--navy)}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.presets button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 10px;font-size:.82rem;color:var(--navy)}
+.presets button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.price-in{display:flex;align-items:center;gap:8px}
+.price-in input{width:100px;font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:8px}
+.result{background:var(--navy);color:#fff;border-radius:var(--radius-sm);padding:16px}
+.result .big{font-size:1.9rem;font-weight:800}
+.result .small{font-size:.86rem;color:#c9d3e3}
+.steps{font-size:.9rem;margin:0;padding:0;list-style:none;display:grid;gap:4px}
+.steps li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding:3px 0}
+.steps li b{white-space:nowrap}
+.footnote{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);margin-top:18px;padding-top:12px}
+.footnote p{margin:0 0 .5em}
+
+.note{border-left:4px solid var(--yellow);background:var(--yellow-soft);padding:12px 14px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.94rem;margin-top:16px}
+.note b{display:block;margin-bottom:2px}
+
+.howto{display:grid;gap:12px;margin-top:18px;counter-reset:h}
+@media (min-width:800px){.howto{grid-template-columns:repeat(3,1fr)}}
+.howto > div{border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;position:relative}
+.howto > div::before{counter-increment:h;content:counter(h);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.82rem;margin-bottom:8px}
+.howto h3{font-size:.98rem;margin-bottom:4px}
+.howto p{font-size:.9rem;color:var(--muted);margin:0}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:11px 18px;font-weight:700;text-decoration:none;font-size:.95rem}
+.btn.primary{background:var(--yellow);color:var(--navy)}
+.btn.primary:hover{background:#ffcc00}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.ghost:hover{background:#f0f2f6}
+
+/* Checklist */
+.cl-progress{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cl-progress .bar{flex:1;height:8px;background:var(--line);border-radius:999px;overflow:hidden}
+.cl-progress .bar span{display:block;height:100%;background:var(--green);transition:width .3s}
+.cl-progress b{font-size:.9rem;white-space:nowrap}
+.cl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cl > li{border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;transition:background .2s}
+.cl > li.done{background:#f7faf8}
+.cl > li.done .cl-title{text-decoration:line-through;text-decoration-color:rgba(11,31,59,.35);color:var(--muted)}
+.cl input[type=checkbox]{appearance:none;-webkit-appearance:none;width:24px;height:24px;border:2px solid #9aa3b2;border-radius:6px;margin:1px 0 0;display:grid;place-items:center;background:#fff;cursor:pointer}
+.cl input[type=checkbox]:checked{background:var(--green);border-color:var(--green)}
+.cl input[type=checkbox]:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.cl input[type=checkbox]:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.cl-title{font-weight:700;cursor:pointer}
+.cl-meta{grid-column:2;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.84rem;color:var(--muted)}
+.cl-meta .due{font-weight:600;color:var(--navy)}
+.cl-desc{grid-column:2;font-size:.92rem;color:var(--muted)}
+.choice{grid-column:1 / -1;display:grid;gap:8px;margin-top:8px}
+@media (min-width:700px){.choice{grid-column:2}}
+.choice label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:10px 12px;cursor:pointer;font-size:.92rem}
+.choice label:has(input:checked){border-color:var(--navy);background:#f3f6fb}
+.choice input{margin-top:4px;accent-color:var(--navy)}
+.choice b{display:block}
+
+/* Q&A */
+.ask{border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;background:#fafbfc}
+.ask label{font-weight:700;display:block;margin-bottom:6px}
+.ask textarea{width:100%;min-height:96px;font:inherit;border:1px solid #cfd4dc;border-radius:8px;padding:10px 12px;resize:vertical;background:#fff}
+.ask textarea:focus,.price-in input:focus{outline:3px solid var(--yellow);border-color:var(--navy)}
+.ask-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;font-size:.86rem;color:var(--muted)}
+.qa{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px}
+.qa > li{border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.q{padding:12px 14px}
+.q .meta,.a .meta{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-bottom:3px}
+.q .txt{font-weight:600}
+.a{padding:12px 14px;background:#f5f7fa;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:10px}
+.a .txt{font-size:.94rem}
+.pending{padding:10px 14px;background:var(--orange-soft);color:var(--orange);font-size:.88rem;border-top:1px solid var(--line)}
+.av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.82rem;color:#fff;background:var(--navy-2);flex:none}
+
+/* Contacts */
+.contacts{display:grid;gap:12px}
+.person{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start}
+.person .av{width:44px;height:44px;font-size:.95rem;grid-row:span 2}
+.person .name{font-weight:700;line-height:1.25}
+.person .role{font-size:.84rem;color:var(--muted)}
+.person .links{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.person .links a{font-size:.84rem;font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;display:inline-flex;gap:6px;align-items:center}
+.person .links a:hover{border-color:var(--navy)}
+.person + .person{border-top:1px solid var(--line);padding-top:12px}
+.side h3{margin-bottom:12px}
+.lead-person{background:var(--yellow-soft);border-radius:var(--radius-sm);padding:12px;margin:-4px -4px 4px}
+
+footer{color:var(--muted);font-size:.85rem;padding:0 0 40px}
+footer .wrap{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(120%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:12px;font-size:.92rem;font-weight:600;transition:transform .3s,opacity .3s;opacity:0;visibility:hidden;z-index:50;max-width:calc(100% - 32px)}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;visibility:visible}
+
+@media print{
+  .topbar,.ask,.btn-row,.toast{display:none}
+  body{background:#fff}
+  .card{border:0;padding:0}
+  .side{position:static;max-height:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1.5 1.5 7v7.5h4.5V10h4v4.5h4.5V7z" fill="#0b1f3b"/></svg>
+      </span>
+      Projektportal <small>Wärmepumpe</small>
+    </a>
+    <nav class="topnav" aria-label="Abschnitte">
+      <a href="#timeline">Ablauf</a>
+      <a href="#termin">Vor-Ort-Termin</a>
+      <a href="#heizlast">Heizlast</a>
+      <a href="#auslegung">Auslegung &amp; Kosten</a>
+      <a href="#heizkoerper">Heizkörper</a>
+      <a href="#checkliste">Checkliste</a>
+      <a href="#fragen">Fragen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Projekt WP-2026-04817</div>
+      <h1>Ihre Wärmepumpen&shy;planung auf einen Blick</h1>
+      <p class="lead">Guten Tag Familie Mustermann, hier finden Sie alles zu Ihrer neuen Wärmepumpe: was wir beim Vor-Ort-Termin besprochen haben, wie wir Ihr Haus berechnet haben, was Sie bis zur Installation erledigen sollten und wen Sie bei Fragen erreichen. Wir halten diese Seite bis zur Inbetriebnahme aktuell.</p>
+      <div class="hero-meta">
+        <span>Am Lindenhof 7, 34128 Kassel</span>
+        <span>Zuletzt aktualisiert: <b>02.11.2026</b> von Sarah Brandt</span>
+      </div>
+    </div>
+    <aside class="next-card" aria-label="Nächster Termin">
+      <div class="label">Ihr Installationstermin</div>
+      <div class="big">24. – 26. November 2026</div>
+      <div class="small">Montageteam von Murat Yilmaz, Beginn jeweils 7:30 Uhr</div>
+      <span class="days" id="countdown">in 22 Tagen</span>
+      <div class="progress" aria-hidden="true"><span id="heroBar" style="width:0%"></span></div>
+      <div class="small"><span id="heroCount">0 von 0</span> Punkten Ihrer <a class="inline" href="#checkliste">Checkliste</a> erledigt</div>
+    </aside>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <main class="main">
+
+    <!-- Ablauf -->
+    <section class="card" id="timeline">
+      <div class="sec-head"><div><h2>So läuft Ihr Projekt ab</h2><p>Erledigte Schritte sind dunkel markiert.</p></div></div>
+      <ol class="tl" id="tl"></ol>
+    </section>
+
+    <!-- 1 -->
+    <section class="card" id="termin">
+      <div class="sec-head"><span class="sec-no">1</span><div><h2>Ergebnisse aus dem Vor-Ort-Termin</h2><p>Termin zur Montagevorbereitung am 18.09.2026 mit Murat Yilmaz</p></div></div>
+      <p>Die wichtigsten Erkenntnisse im Überblick. Die Daten sind gleichzeitig die Grundlage für die Heizlastberechnung in <a href="#heizlast">Kapitel 2</a>.</p>
+      <div class="tbl-wrap">
+        <table>
+          <tbody>
+            <tr><td>Haus nachträglich gedämmt?</td><td><b>Nein</b></td></tr>
+            <tr><td>Heizraum im Stockwerk</td><td><b>Keller</b></td></tr>
+            <tr><td>Hindernisse im Heizraum?</td><td><b>Ja:</b> Waschmaschine &amp; Trockner müssen raus</td></tr>
+            <tr><td>Wärmeverteilung</td><td><b>Heizkörper</b> und <b>Fußbodenheizung</b> (Bad, Küche/Essen)</td></tr>
+            <tr><td>Wanddurchbrüche Elektrik</td><td><b>1</b></td></tr>
+            <tr><td>Abstellgenehmigung Lieferung?</td><td><b>Ja</b></td></tr>
+            <tr><td>Materiallager bis Installation</td><td><b>Carport</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="split">
+        <div>
+          <h3 style="margin-bottom:10px">Von Ihnen unterschrieben am 18.09.2026</h3>
+          <ul class="signed">
+            <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Aufstellort der Außeneinheit gemäß Skizze/Foto</li>
+            <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Erdarbeiten erledigen Sie vor Baubeginn</li>
+            <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Angaben zum Dämmzustand Ihres Hauses sind korrekt</li>
+          </ul>
+          <p class="muted" style="margin-top:14px;font-size:.92rem">Die Skizze zeigt den mit Murat Yilmaz abgestimmten Aufstellort. Falls Erdarbeiten nötig sind, zeigt sie auch, wo der Graben verlaufen soll (Maße in <a href="#checkliste">Ihrer Checkliste</a>).</p>
+        </div>
+        <figure class="sketch" style="margin:0">
+          <svg viewBox="0 0 520 330" role="img" aria-label="Skizze des Aufstellorts: Außeneinheit 1 Meter vor der Hecke und 1 Meter neben der Terrasse, Graben 2 Meter zur Hauswand">
+            <rect x="0" y="0" width="520" height="70" fill="#dfe9d6"/>
+            <g fill="#a9c79a">
+              <circle cx="30" cy="62" r="22"/><circle cx="80" cy="58" r="26"/><circle cx="135" cy="63" r="22"/><circle cx="185" cy="58" r="26"/><circle cx="240" cy="62" r="23"/><circle cx="295" cy="58" r="26"/><circle cx="350" cy="63" r="22"/><circle cx="405" cy="58" r="25"/><circle cx="460" cy="62" r="23"/><circle cx="505" cy="58" r="22"/>
+            </g>
+            <text x="16" y="28" font-size="13" fill="#3f5a33" font-family="Figtree,sans-serif" font-weight="600">Hecke</text>
+            <rect x="0" y="86" width="150" height="190" fill="#e4e4e0"/>
+            <g stroke="#d0d0ca" stroke-width="1">
+              <path d="M0 124h150M0 162h150M0 200h150M0 238h150M50 86v190M100 86v190"/>
+            </g>
+            <text x="16" y="110" font-size="13" fill="#6a6a62" font-family="Figtree,sans-serif" font-weight="600">Terrasse</text>
+            <rect x="0" y="276" width="520" height="54" fill="#c9ced6"/>
+            <text x="16" y="308" font-size="13" fill="#0b1f3b" font-family="Figtree,sans-serif" font-weight="700">Hauswand · Kellerdurchbruch</text>
+            <rect x="415" y="276" width="18" height="10" fill="#0b1f3b"/>
+            <!-- Unit -->
+            <rect x="250" y="116" width="150" height="62" rx="6" fill="#0b1f3b"/>
+            <circle cx="290" cy="147" r="20" fill="none" stroke="#ffd60a" stroke-width="3"/>
+            <circle cx="290" cy="147" r="4" fill="#ffd60a"/>
+            <text x="320" y="152" font-size="12" fill="#fff" font-family="Figtree,sans-serif" font-weight="700">WP</text>
+            <!-- trench -->
+            <path d="M380 178 V230 H424 V276" stroke="#b85c00" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+            <text x="432" y="236" font-size="12" fill="#b85c00" font-family="Figtree,sans-serif" font-weight="700">Graben ca. 2 m</text>
+            <!-- dims -->
+            <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b" font-family="Figtree,sans-serif" font-size="12" font-weight="700">
+              <path d="M325 82 V114" /><path d="M319 82h12M319 114h12"/>
+              <text x="336" y="103" stroke="none">1,00 m</text>
+              <path d="M152 147 H248"/><path d="M152 141v12M248 141v12"/>
+              <text x="178" y="140" stroke="none">1,00 m</text>
+              <path d="M250 194 H400"/><path d="M250 188v12M400 188v12"/>
+              <text x="300" y="212" stroke="none">1,00 m</text>
+            </g>
+          </svg>
+          <figcaption>Skizze nach Foto vom Vor-Ort-Termin, nicht maßstabsgetreu. Fundament ca. 1,00 × 0,50 m.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="card" id="heizlast">
+      <div class="sec-head"><span class="sec-no">2</span><div><h2>Heizlastberechnung für Ihr Haus</h2><p>Raumweise berechnet nach DIN EN 12831 aus den Daten des Vor-Ort-Termins</p></div></div>
+      <p>Die Heizlast sagt, wie viel Wärme jeder Raum am kältesten Tag des Jahres braucht, um warm zu bleiben. Für Kassel rechnen wir mit einer Außentemperatur von <b>−12 °C</b>. Die letzte Spalte zeigt, ob Ihr vorhandener Heizkörper das mit der Wärmepumpe (55 °C Vorlauf) schafft.</p>
+      <div class="tbl-wrap">
+        <table id="roomTable">
+          <thead><tr><th>Raum</th><th class="r">Fläche</th><th class="r">Soll-Temp.</th><th class="r">Heizlast</th><th>Heizkörper</th></tr></thead>
+          <tbody></tbody>
+          <tfoot><tr><th>Gesamt</th><th class="r num" id="sumArea"></th><th></th><th class="r num" id="sumLoad"></th><th></th></tr></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="card" id="auslegung">
+      <div class="sec-head"><span class="sec-no">3</span><div><h2>Auslegung und Betriebskosten</h2><p>Was aus der Heizlast für Ihre Wärmepumpe folgt</p></div></div>
+      <div class="kpis">
+        <div class="kpi"><div class="k">Beheizte Fläche</div><div class="v num">165,4 <small>m²</small></div></div>
+        <div class="kpi"><div class="k">Gebäudeheizlast</div><div class="v num">17,71 <small>kW</small></div></div>
+        <div class="kpi"><div class="k">Leistung Außeneinheit</div><div class="v num">16 <small>kW</small></div></div>
+        <div class="kpi"><div class="k">Vorlauftemperatur</div><div class="v num">55 <small>°C</small></div></div>
+        <div class="kpi"><div class="k">Jahresarbeitszahl (JAZ)</div><div class="v num">3,07</div></div>
+        <div class="kpi accent"><div class="k">Geschätzte Stromkosten <sup><a href="#fn1">¹</a></sup></div><div class="v num"><span id="kpiCost">2.433</span> <small>€/Jahr</small></div></div>
+      </div>
+      <p>Die Außeneinheit ist für einen effizienten Dauerbetrieb ausgelegt. Seltene Lastspitzen an sehr kalten Tagen übernimmt der eingebaute elektrische Zuheizer. Deshalb ist die Außeneinheit mit 16 kW etwas kleiner als die berechnete Heizlast von 17,71 kW.</p>
+      <p>Die <b>Jahresarbeitszahl</b> zeigt die Effizienz: Aus 1 kWh Strom macht Ihre Wärmepumpe im Jahresmittel 3,07 kWh Wärme.</p>
+
+      <div class="calc" id="rechner">
+        <div class="calc-head"><h3>Wie wir auf die Betriebskosten kommen</h3><span class="muted" style="font-size:.86rem">Probieren Sie Ihre eigenen Werte aus</span></div>
+        <div class="calc-body">
+          <div style="display:grid;gap:18px">
+            <div class="field">
+              <label for="temp"><span>Durchschnittliche Raumtemperatur</span><span class="num" id="tempOut">21 °C</span></label>
+              <input type="range" id="temp" min="17" max="28" step="0.5" value="21">
+              <div class="presets" id="presets">
+                <button type="button" data-t="19">Eher kühl · 19 °C</button>
+                <button type="button" data-t="21" class="on">Unsere Annahme · 21 °C</button>
+                <button type="button" data-t="23">Warm · 23 °C</button>
+                <button type="button" data-t="26">Sehr warm · 26 °C</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="price"><span>Strompreis (Wärmepumpentarif)</span></label>
+              <div class="price-in"><input id="price" type="number" inputmode="decimal" min="0.10" max="0.80" step="0.01" value="0.28"><span class="muted">€ pro kWh</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="result"><div class="small">Geschätzte Stromkosten pro Jahr</div><div class="big num" id="costOut">2.433 €</div><div class="small" id="costMonth">ca. 203 € im Monat</div></div>
+            <ul class="steps num" style="margin-top:12px" id="steps"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="footnote" id="fn1">
+        <p><b>¹ So rechnen wir:</b> Ihr Wärmebedarf liegt bei rund <b>26.680 kWh pro Jahr</b>. Abgeleitet haben wir ihn aus Ihrem Ölverbrauch der letzten drei Jahre (Ø 2.965 Liter × 10 kWh pro Liter × 90 % Nutzungsgrad des alten Kessels) und mit der Heizlastberechnung abgeglichen. Davon entfallen etwa 23.480 kWh auf die Heizung und 3.200 kWh auf das Warmwasser für 4 Personen.</p>
+        <p>26.680 kWh ÷ JAZ 3,07 = <b>8.691 kWh Strom</b> × <b>0,28 €/kWh</b> (Arbeitspreis eines typischen Wärmepumpentarifs, brutto) = <b>2.433 € pro Jahr</b>.</p>
+        <p>Angenommen ist eine <b>durchschnittliche Raumtemperatur von 21 °C</b> in den Wohnräumen (Bad 24 °C). Faustregel: Jedes Grad mehr kostet rund 6 % mehr Heizenergie. Wer nirgends über 20 °C heizt, zahlt also spürbar weniger, wer im Winter bei 26 °C im T-Shirt sitzt, deutlich mehr. Nicht enthalten ist der Grundpreis Ihres Stromtarifs (meist 100 bis 180 € im Jahr). Wetter und Nutzung können die tatsächlichen Kosten verändern.</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="card" id="heizkoerper">
+      <div class="sec-head"><span class="sec-no">4</span><div><h2>Empfohlener Heizkörpertausch</h2><p>Zwei Räume brauchen bei 55 °C mehr Leistung, als die heutigen Heizkörper liefern</p></div></div>
+      <p>Ihre Wärmepumpe arbeitet mit einer niedrigeren Vorlauftemperatur als Ihr Ölkessel. Ein Heizkörper gibt dann weniger Wärme ab. In diesen zwei Räumen reicht die Leistung dafür nicht ganz:</p>
+      <div class="tbl-wrap">
+        <table id="radTable">
+          <thead><tr><th>Raum</th><th class="r">Heutiger Heizkörper bei 55 °C</th><th class="r">Benötigt</th><th class="r">Festpreis Tausch</th></tr></thead>
+          <tbody>
+            <tr><td><b>Schlafzimmer</b>, 1. OG</td><td class="r num" data-l="Heute bei 55 °C">1.500 W</td><td class="r num" data-l="Benötigt">2.354 W</td><td class="r num" data-l="Festpreis Tausch">1.500 €</td></tr>
+            <tr><td><b>Kinderzimmer</b>, 1. OG</td><td class="r num" data-l="Heute bei 55 °C">935 W</td><td class="r num" data-l="Benötigt">1.500 W</td><td class="r num" data-l="Festpreis Tausch">1.500 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><b>Wichtig zu wissen</b>Der Heizkörpertausch ist nicht im Kaufpreis der Wärmepumpe enthalten. Sie können ihn jetzt dazubuchen oder innerhalb von 18 Monaten nach der Installation zum gleichen Festpreis nachrüsten, falls Ihnen ein Raum zu kühl bleibt.</div>
+
+      <h3 style="margin-top:22px">So beauftragen Sie den Tausch</h3>
+      <div class="howto">
+        <div><h3>Kurz Bescheid geben</h3><p>Schreiben Sie unten eine Frage/Nachricht oder rufen Sie Sarah Brandt an: 0561 123 456-12. Sagen Sie, welche Räume getauscht werden sollen.</p></div>
+        <div><h3>Bestätigung erhalten</h3><p>Sie bekommen innerhalb von 2 Werktagen eine Auftragsbestätigung per E-Mail zum Festpreis von 1.500 € je Heizkörper.</p></div>
+        <div><h3>Tausch am Installationstag</h3><p>Bei Bestellung bis <b>13.11.2026</b> tauschen wir die Heizkörper direkt bei der Installation. Später ist ein eigener Termin nötig.</p></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn primary" type="button" id="orderRad">Heizkörpertausch anfragen</button>
+        <a class="btn ghost" href="tel:+4956112345612">Sarah Brandt anrufen</a>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="card" id="checkliste">
+      <div class="sec-head"><span class="sec-no">5</span><div><h2>Ihre Checkliste bis zum Installationstermin</h2><p>Haken Sie ab, was erledigt ist. Ihr Stand wird auf diesem Gerät gespeichert.</p></div></div>
+      <div class="cl-progress"><div class="bar"><span id="clBar"></span></div><b id="clCount">0 / 0 erledigt</b></div>
+      <ul class="cl" id="cl"></ul>
+    </section>
+
+    <!-- Fragen -->
+    <section class="card" id="fragen">
+      <div class="sec-head"><div><h2>Ihre Fragen an uns</h2><p>Antworten erscheinen hier und zusätzlich per E-Mail. In der Regel innerhalb eines Werktags.</p></div></div>
+      <form class="ask" id="askForm">
+        <label for="q">Was möchten Sie wissen?</label>
+        <textarea id="q" placeholder="z. B. Wie laut ist die Außeneinheit nachts?" required></textarea>
+        <div class="ask-foot"><span>Geht an Sarah Brandt, Projektleitung</span><button class="btn primary" type="submit">Frage senden</button></div>
+      </form>
+      <ul class="qa" id="qa"></ul>
+    </section>
+  </main>
+
+  <aside class="side">
+    <section class="card" id="kontakt">
+      <h3>Ihre Ansprechpartner</h3>
+      <div class="contacts" id="contacts"></div>
+    </section>
+    <section class="card">
+      <h3>Neuigkeiten</h3>
+      <ul class="updates" id="updates"></ul>
+    </section>
+    <section class="card">
+      <h3>Dokumente</h3>
+      <ul class="updates" style="font-size:.92rem">
+        <li><a href="#" onclick="return false">Angebot &amp; Auftragsbestätigung</a> <span class="muted">· PDF</span></li>
+        <li><a href="#" onclick="return false">Protokoll Vor-Ort-Termin 18.09.</a> <span class="muted">· PDF</span></li>
+        <li><a href="#" onclick="return false">Förderzusage KfW</a> <span class="muted">· PDF</span></li>
+        <li><a href="#" onclick="return false">Datenblatt Außeneinheit 16 kW</a> <span class="muted">· PDF</span></li>
+      </ul>
+    </section>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Muster Energie GmbH · Projektportal für Familie Mustermann</span>
+    <span>Entwurf: Alle Daten sind Beispieldaten. Fragen und Häkchen werden nur in Ihrem Browser gespeichert.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== Projektdaten: hier pflegen ===== */
+const INSTALL_DATE = new Date('2026-11-24T07:30:00');
+
+const TIMELINE = [
+  {s:'done', when:'02.09.2026', what:'Beratung & Auftrag', desc:'Angebot angenommen'},
+  {s:'done', when:'18.09.2026', what:'Vor-Ort-Termin', desc:'Aufstellort und Heizraum geprüft'},
+  {s:'done', when:'07.10.2026', what:'Heizlast & Planung', desc:'Raumweise Berechnung fertig'},
+  {s:'done', when:'31.10.2026', what:'Förderzusage', desc:'KfW-Zusage liegt vor'},
+  {s:'now',  when:'bis 20.11.2026', what:'Ihre Vorbereitungen', desc:'Siehe Checkliste'},
+  {s:'next', when:'23.11.2026', what:'Materiallieferung', desc:'Abstellort Carport'},
+  {s:'next', when:'24.–26.11.2026', what:'Installation', desc:'3 Tage, Heizung kurz aus'},
+  {s:'next', when:'26.11.2026', what:'Inbetriebnahme', desc:'Mit Einweisung für Sie'},
+];
+
+const ROOMS = [
+  // name, Stockwerk, m², °C, benötigte Heizlast W, vorhandene Leistung bei 55 °C (W) oder 'FBH'
+  ['Wohnzimmer','EG',38.5,20,3980,4200],
+  ['Küche','EG',14.2,20,1260,'FBH'],
+  ['Esszimmer','EG',16.8,20,1640,'FBH'],
+  ['Arbeitszimmer','EG',12.4,20,1380,1520],
+  ['Flur','EG',9.6,20,900,980],
+  ['Gäste-WC','EG',3.1,20,330,410],
+  ['Schlafzimmer','1. OG',18.6,20,2354,1500],
+  ['Kinderzimmer','1. OG',13.4,20,1500,935],
+  ['Kinderzimmer 2','1. OG',12.8,20,1420,1480],
+  ['Bad','1. OG',10.2,24,1460,'FBH'],
+  ['Flur','1. OG',8.3,20,680,760],
+  ['Hobbyraum','KG',7.5,20,806,880],
+];
+
+const PEOPLE = {
+  sb:{name:'Sarah Brandt', role:'Projektleitung · Ihre erste Ansprechpartnerin', init:'SB', color:'#132c52', tel:'+49 561 123456-12', mail:'s.brandt@muster-energie.de', lead:true},
+  dk:{name:'Dennis Karpfen', role:'Technische Planung · Fragen zu Heizlast und Auslegung', init:'DK', color:'#4a3b78', tel:'+49 561 123456-22', mail:'d.karpfen@muster-energie.de'},
+  my:{name:'Murat Yilmaz', role:'Montageleiter · Installation vor Ort', init:'MY', color:'#2d5a3d', tel:'+49 561 123456-30', mail:'m.yilmaz@muster-energie.de'},
+  lh:{name:'Lena Hoffmann', role:'Förderung & Rechnungen', init:'LH', color:'#7a4a12', tel:'+49 561 123456-41', mail:'foerderung@muster-energie.de'},
+  ks:{name:'Kundenservice', role:'Mo–Fr 8–18 Uhr', init:'KS', color:'#5b6577', tel:'+49 561 123456-0', mail:'service@muster-energie.de'},
+};
+
+const UPDATES = [
+  {d:'02.11.2026', by:'Sarah Brandt', t:'Ihre Planung ist fertig', x:'Heizlastberechnung und Auslegung sind jetzt hier für Sie hinterlegt.'},
+  {d:'31.10.2026', by:'Lena Hoffmann', t:'Förderzusage der KfW ist da', x:'Zugesagt sind 50 % der förderfähigen Kosten. Die Auszahlung beantragen wir nach der Inbetriebnahme mit Ihnen.'},
+  {d:'24.10.2026', by:'Sarah Brandt', t:'Installationstermin bestätigt', x:'24. bis 26.11.2026, Beginn jeweils 7:30 Uhr.'},
+];
+
+const CHECKLIST = [
+  {id:'tank', t:'Entsorgung der Öltanks klären', due:'09.11.2026', who:'Sie entscheiden',
+   d:'Den alten Ölkessel samt Leitungen bauen wir bei der Installation aus und entsorgen ihn, das ist im Preis enthalten. Die Öltanks nicht: Sie müssen vorher von einem Fachbetrieb abgepumpt, gereinigt und abtransportiert werden. Bitte wählen Sie:',
+   choice:[
+     {v:'wir', b:'Das soll Muster Energie organisieren', s:'Unser Partnerbetrieb kommt vor dem 20.11. Festpreis 790 € für bis zu 3 Kunststofftanks inkl. Restöl-Absaugung, Abrechnung über uns.'},
+     {v:'selbst', b:'Wir kümmern uns selbst', s:'Bitte beauftragen Sie einen zertifizierten Fachbetrieb und schreiben Sie uns den Termin. Tanks müssen bis 20.11. raus sein.'}
+   ]},
+  {id:'hk', t:'Über den Heizkörpertausch entscheiden', due:'13.11.2026', who:'Sie', d:'Optional für Schlafzimmer und Kinderzimmer. Nur bei Bestellung bis 13.11. direkt am Installationstag möglich.', link:['#heizkoerper','Zum Heizkörpertausch']},
+  {id:'graben', t:'Graben zur Außeneinheit ausheben', due:'20.11.2026', who:'Sie oder ein Gartenbauer', d:'Länge ca. 2 m, Tiefe 60–70 cm, Breite 20 cm. Verlauf siehe Skizze in Kapitel 1.', link:['#termin','Zur Skizze']},
+  {id:'baum', t:'Baum und Pflanzen am Aufstellort entfernen', due:'20.11.2026', who:'Sie', d:'Fläche von ca. 1,50 × 1,00 m frei machen, damit wir das Fundament setzen können.'},
+  {id:'oeltank', t:'Öltanks sind abgebaut', due:'20.11.2026', who:'Partnerbetrieb oder Sie', d:'Je nach Ihrer Wahl oben. Der Heizungsraum muss für die neue Anlage frei sein.'},
+  {id:'wasch', t:'Waschmaschine und Trockner aus dem Heizraum räumen', due:'23.11.2026', who:'Sie', d:'Vorübergehend reicht ein anderer Kellerraum. Wo sie danach wieder stehen können, zeigt Ihnen Murat Yilmaz am ersten Tag.'},
+  {id:'gang', t:'Gang zum Heizungsraum freiräumen', due:'23.11.2026', who:'Sie', d:'Mindestens 1 m breit, damit wir die Altanlage raus- und die neue Anlage reinbringen können.'},
+  {id:'carport', t:'Carport für die Lieferung frei halten', due:'23.11.2026', who:'Sie', d:'Die Spedition stellt dort 2 Paletten ab (ca. 2 × 1,2 m). Sie müssen nicht zu Hause sein.'},
+];
+
+const QA_SEED = [
+  {id:'s1', d:'29.10.2026', q:'Müssen wir an den Installationstagen zu Hause sein?', a:{p:'my', d:'29.10.2026', x:'Am ersten Tag um 7:30 Uhr bitte ja, damit wir kurz alles gemeinsam ansehen. Danach reicht es, wenn wir in den Keller kommen. Am dritten Tag nachmittags machen wir die Einweisung, dafür planen Sie bitte eine Stunde ein.'}},
+  {id:'s2', d:'27.10.2026', q:'Wie laut ist die Außeneinheit nachts? Das Schlafzimmer unserer Nachbarn liegt auf dieser Seite.', a:{p:'sb', d:'27.10.2026', x:'Im Nachtmodus sind es etwa 35 dB(A) in 3 m Abstand, ungefähr so laut wie Flüstern. Den Abstand zum Nachbargrundstück haben wir geprüft, die Grenzwerte der TA Lärm werden eingehalten.'}},
+  {id:'s3', d:'21.10.2026', q:'Bleibt die Fußbodenheizung im Bad und in der Küche erhalten?', a:{p:'sb', d:'22.10.2026', x:'Ja. Die Fußbodenheizung bleibt und läuft mit der Wärmepumpe sogar besonders effizient, weil sie mit niedriger Temperatur auskommt.'}},
+];
+
+/* ===== Hilfsfunktionen ===== */
+const $ = s => document.querySelector(s);
+const fmt = (n, d=0) => n.toLocaleString('de-DE',{minimumFractionDigits:d, maximumFractionDigits:d});
+const store = {
+  get(k, fb){ try{ const v = localStorage.getItem('wpaeb_'+k); return v ? JSON.parse(v) : fb; }catch(e){ return fb; } },
+  set(k, v){ try{ localStorage.setItem('wpaeb_'+k, JSON.stringify(v)); }catch(e){} }
+};
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('show'),3200); }
+
+/* Countdown */
+(function(){
+  const days = Math.ceil((INSTALL_DATE - new Date())/86400000);
+  const el = $('#countdown');
+  if (days > 1) el.textContent = 'in ' + days + ' Tagen';
+  else if (days === 1) el.textContent = 'morgen';
+  else if (days > -3) el.textContent = 'läuft gerade';
+  else el.style.display = 'none';
+})();
+
+/* Timeline */
+(function(){
+  const tl = $('#tl');
+  tl.style.setProperty('--n', TIMELINE.length);
+  tl.innerHTML = TIMELINE.map(i => `<li class="${i.s}"><span class="dot">${i.s==='done'?'<svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#fff" stroke-width="2" fill="none"/></svg>':''}</span><div class="when">${i.when}</div><div class="what">${i.what}</div><div class="desc">${i.desc}</div></li>`).join('');
+})();
+
+/* Räume */
+(function(){
+  const tb = $('#roomTable tbody');
+  let area=0, load=0;
+  tb.innerHTML = ROOMS.map(([n,f,a,t,need,have]) => {
+    area+=a; load+=need;
+    let status;
+    if (have==='FBH') status = '<span class="tag info">Fußbodenheizung</span>';
+    else if (have >= need) status = '<span class="tag ok">reicht aus</span>';
+    else status = `<span class="tag warn">Tausch empfohlen</span> <span class="muted num" style="font-size:.82rem">${fmt(have)} W vorhanden</span>`;
+    return `<tr${have!=='FBH'&&have<need?' class="hl"':''}><td><b>${n}</b> <span class="muted">${f}</span></td><td class="r num">${fmt(a,1)} m²</td><td class="r num">${t} °C</td><td class="r num">${fmt(need)} W</td><td>${status}</td></tr>`;
+  }).join('');
+  $('#sumArea').textContent = fmt(area,1)+' m²';
+  $('#sumLoad').textContent = fmt(load/1000,2)+' kW';
+})();
+
+/* Betriebskosten-Rechner */
+(function(){
+  const HEAT=23480, DHW=3200, JAZ=3.07, BASE_T=21, PER_DEG=0.06;
+  const temp=$('#temp'), price=$('#price');
+  function calc(){
+    const t=parseFloat(temp.value), p=Math.max(0, parseFloat(String(price.value).replace(',','.'))||0);
+    const heat=HEAT*Math.max(0.4, 1+PER_DEG*(t-BASE_T));
+    const total=heat+DHW, el=total/JAZ, cost=el*p;
+    $('#tempOut').textContent = fmt(t, t%1?1:0)+' °C';
+    $('#costOut').textContent = fmt(Math.round(cost))+' €';
+    $('#costMonth').textContent = 'ca. '+fmt(Math.round(cost/12))+' € im Monat';
+    $('#steps').innerHTML = `
+      <li><span>Heizwärme bei Ø ${fmt(t, t%1?1:0)} °C</span><b>${fmt(Math.round(heat))} kWh</b></li>
+      <li><span>+ Warmwasser (4 Personen)</span><b>${fmt(DHW)} kWh</b></li>
+      <li><span>÷ Jahresarbeitszahl</span><b>3,07</b></li>
+      <li><span>= Strombedarf</span><b>${fmt(Math.round(el))} kWh</b></li>
+      <li><span>× Strompreis</span><b>${fmt(p,2)} €/kWh</b></li>`;
+    document.querySelectorAll('#presets button').forEach(b => b.classList.toggle('on', parseFloat(b.dataset.t)===t));
+  }
+  temp.addEventListener('input', calc); price.addEventListener('input', calc);
+  $('#presets').addEventListener('click', e => { const b=e.target.closest('button'); if(!b) return; temp.value=b.dataset.t; calc(); });
+  calc();
+})();
+
+/* Ansprechpartner */
+(function(){
+  const ic = {
+    tel:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+    mail:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>'
+  };
+  $('#contacts').innerHTML = Object.values(PEOPLE).map(p => `
+    <div class="person${p.lead?' lead-person':''}">
+      <span class="av" style="background:${p.color}">${p.init}</span>
+      <div class="name">${p.name}</div>
+      <div class="role">${p.role}</div>
+      <div class="links">
+        <a href="tel:${p.tel.replace(/[^+\d]/g,'')}">${ic.tel}${p.tel.replace('+49 ','0')}</a>
+        <a href="mailto:${p.mail}?subject=Projekt%20WP-2026-04817">${ic.mail}E-Mail</a>
+      </div>
+    </div>`).join('');
+})();
+
+/* Neuigkeiten */
+$('#updates').innerHTML = UPDATES.map(u => `<li><div class="u-meta">${u.d} · ${u.by}</div><div class="u-title">${u.t}</div><div class="u-text">${u.x}</div></li>`).join('');
+
+/* Checkliste */
+(function(){
+  const state = store.get('checklist', {});
+  const choice = store.get('tankChoice', null);
+  const ul = $('#cl');
+  ul.innerHTML = CHECKLIST.map(c => `
+    <li data-id="${c.id}">
+      <input type="checkbox" id="c_${c.id}" ${state[c.id]?'checked':''} aria-describedby="d_${c.id}">
+      <label class="cl-title" for="c_${c.id}">${c.t}</label>
+      <div class="cl-meta"><span class="due">bis ${c.due}</span><span>Wer: ${c.who}</span>${c.link?`<a href="${c.link[0]}">${c.link[1]}</a>`:''}</div>
+      <div class="cl-desc" id="d_${c.id}">${c.d}</div>
+      ${c.choice?`<div class="choice">${c.choice.map(o=>`<label><input type="radio" name="tank" value="${o.v}" ${choice===o.v?'checked':''}><span><b>${o.b}</b>${o.s}</span></label>`).join('')}</div>`:''}
+    </li>`).join('');
+  function update(){
+    let done=0;
+    ul.querySelectorAll('li[data-id]').forEach(li => { const on=li.querySelector('input[type=checkbox]').checked; li.classList.toggle('done', on); if(on) done++; });
+    const n=CHECKLIST.length, pct=Math.round(done/n*100);
+    $('#clBar').style.width=pct+'%'; $('#heroBar').style.width=pct+'%';
+    $('#clCount').textContent = done+' / '+n+' erledigt';
+    $('#heroCount').textContent = done+' von '+n;
+  }
+  ul.addEventListener('change', e => {
+    if (e.target.type==='checkbox'){
+      const id=e.target.closest('li').dataset.id; state[id]=e.target.checked; store.set('checklist', state); update();
+    }
+    if (e.target.name==='tank'){
+      store.set('tankChoice', e.target.value);
+      const cb=$('#c_tank'); cb.checked=true; state.tank=true; store.set('checklist', state); update();
+      toast(e.target.value==='wir' ? 'Danke! Sarah Brandt meldet sich mit einem Termin für die Tankentsorgung.' : 'Danke! Bitte schicken Sie uns den Termin Ihres Fachbetriebs.');
+    }
+  });
+  update();
+})();
+
+/* Fragen & Antworten */
+(function(){
+  const own = store.get('questions', []);
+  function render(){
+    const all = [...own.slice().reverse(), ...QA_SEED];
+    $('#qa').innerHTML = all.map(i => {
+      const head = `<div class="q"><div class="meta"><span>Familie Mustermann</span><span>${i.d}</span>${i.a?'<span class="tag ok">beantwortet</span>':'<span class="tag warn">offen</span>'}</div><div class="txt">${esc(i.q)}</div></div>`;
+      if (i.a){ const p=PEOPLE[i.a.p]; return `<li>${head}<div class="a"><span class="av" style="background:${p.color}">${p.init}</span><div><div class="meta"><b style="color:var(--navy)">${p.name}</b><span>${i.a.d}</span></div><div class="txt">${esc(i.a.x)}</div></div></div></li>`; }
+      return `<li>${head}<div class="pending">Ihre Frage ist bei Sarah Brandt angekommen. Die Antwort erscheint hier, meist innerhalb eines Werktags.</div></li>`;
+    }).join('');
+  }
+  $('#askForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = $('#q').value.trim(); if(!v) return;
+    own.push({id:'u'+Date.now(), d:new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'}), q:v});
+    store.set('questions', own); $('#q').value=''; render();
+    toast('Ihre Frage wurde gesendet.');
+  });
+  $('#orderRad').addEventListener('click', () => {
+    const q=$('#q'); q.value='Wir möchten den Heizkörpertausch im Schlafzimmer und im Kinderzimmer (1. OG) zum Festpreis beauftragen. Bitte schicken Sie uns die Auftragsbestätigung.';
+    document.getElementById('fragen').scrollIntoView({behavior:'smooth'}); setTimeout(()=>q.focus({preventScroll:true}),500);
+  });
+  render();
+})();
+
+/* Aktiver Menüpunkt */
+(function(){
+  const links=[...document.querySelectorAll('.topnav a')];
+  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=map.get(e.target.id); if(a){ a.classList.add('active'); const nav=a.parentElement; const x=a.offsetLeft-nav.offsetLeft; if(x<nav.scrollLeft||x+a.offsetWidth>nav.scrollLeft+nav.clientWidth){ nav.scrollTo({left:Math.max(0,x-16)}); } } } }); },{rootMargin:'-45% 0px -50% 0px'});
+  map.forEach((a,id)=>{ const s=document.getElementById(id); if(s) io.observe(s); });
+})();
+</script>
+</body>
+</html>
