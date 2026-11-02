@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team-Ansicht · Projekt WP-2026-04817</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.team-badge{background:#fff;color:var(--navy);font-size:.75rem;font-weight:800;border-radius:6px;padding:2px 8px;margin-left:8px;letter-spacing:.03em}
+.thead{background:var(--navy);color:#fff;padding:22px 0 26px}
+.thead h1{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;margin:4px 0 6px}
+.thead .sub{color:#c9d3e3;font-size:.95rem;display:flex;flex-wrap:wrap;gap:6px 18px}
+.thead a{color:var(--yellow);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+@media (min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--navy-2);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px}
+.stat .k{font-size:.8rem;color:#c9d3e3}
+.stat .v{font-size:1.4rem;font-weight:800}
+.tlayout{display:grid;gap:20px;padding:24px 0 48px}
+@media (min-width:1100px){.tlayout{grid-template-columns:minmax(0,1fr) 400px;gap:28px}}
+.col{display:flex;flex-direction:column;gap:20px;min-width:0}
+.qitem{border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.qitem + .qitem{margin-top:12px}
+.qitem.new{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+.reply{padding:12px 14px;border-top:1px solid var(--line);background:#fafbfc;display:grid;gap:8px}
+.reply textarea{width:100%;min-height:80px;font:inherit;border:1px solid #cfd4dc;border-radius:8px;padding:9px 11px;resize:vertical;background:#fff}
+.reply textarea:focus,.f input:focus,.f textarea:focus,.f select:focus,.reply select:focus{outline:3px solid var(--yellow);border-color:var(--navy)}
+.reply-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+select{font:inherit;border:1px solid #cfd4dc;border-radius:8px;padding:7px 10px;background:#fff;color:var(--navy)}
+.sugg{border:1px dashed #c3cad5;background:#fff;border-radius:8px;padding:6px 10px;font-size:.85rem;color:var(--navy);text-align:left}
+.sugg:hover{border-color:var(--navy)}
+.empty{color:var(--muted);font-size:.95rem;padding:10px 0}
+.f{display:grid;gap:10px}
+.f label{font-weight:600;font-size:.9rem;display:grid;gap:4px}
+.f input,.f textarea{font:inherit;border:1px solid #cfd4dc;border-radius:8px;padding:8px 11px;width:100%}
+.f textarea{min-height:70px;resize:vertical}
+.cstat{list-style:none;margin:0;padding:0}
+.cstat li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:.93rem}
+.cstat li:first-child{border-top:0}
+.cstat .ic{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.cstat .ic.ok{background:var(--green)}
+.cstat .ic.open{border:2px solid #b8c0cc}
+.cstat .due{margin-left:auto;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.switch{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.switch input{appearance:none;-webkit-appearance:none;flex:none;width:42px;height:24px;border-radius:999px;background:#c3cad5;position:relative;transition:background .2s;cursor:pointer;margin:0}
+.switch input::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .2s}
+.switch input:checked{background:var(--green)}
+.switch input:checked::after{left:21px}
+.danger{background:#fff;color:#a12a2a;border:1.5px solid #e2b4b4}
+.danger:hover{background:#fbeeee}
+details.answered summary{cursor:pointer;font-weight:700;padding:4px 0}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="team.html">
+      <span class="brand-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1.5 1.5 7v7.5h4.5V10h4v4.5h4.5V7z" fill="#0b1f3b"/></svg></span>
+      Projektportal <span class="team-badge">TEAM</span>
+    </a>
+    <nav class="topnav" aria-label="Ansicht">
+      <a href="index.html" target="_blank" rel="noopener">Kundenansicht öffnen ↗</a>
+    </nav>
+  </div>
+</header>
+
+<section class="thead">
+  <div class="wrap">
+    <div class="eyebrow">Projekt WP-2026-04817 · Interne Ansicht</div>
+    <h1>Familie Mustermann, Kassel</h1>
+    <div class="sub"><span>Installation 24.–26.11.2026</span><span>Projektleitung: Sarah Brandt</span><span>Wärmepumpe 16 kW · Heizlast 17,71 kW</span></div>
+    <div class="stats">
+      <div class="stat"><div class="k">Offene Fragen</div><div class="v num" id="sOpen">0</div></div>
+      <div class="stat"><div class="k">Checkliste Kunde</div><div class="v num" id="sCl">0/8</div></div>
+      <div class="stat"><div class="k">Öltank-Entsorgung</div><div class="v" id="sTank" style="font-size:1rem;margin-top:6px">offen</div></div>
+      <div class="stat"><div class="k">Tage bis Installation</div><div class="v num" id="sDays">–</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap tlayout">
+  <main class="col">
+    <section class="card">
+      <div class="sec-head"><div><h2>Offene Fragen</h2><p>Antworten erscheinen sofort in der Kundenansicht.</p></div></div>
+      <div id="openQ"></div>
+    </section>
+    <section class="card">
+      <details class="answered">
+        <summary>Beantwortete Fragen (<span id="nAns">0</span>)</summary>
+        <ul class="qa" id="ansQ"></ul>
+      </details>
+    </section>
+  </main>
+
+  <aside class="col">
+    <section class="card">
+      <h3 style="margin-bottom:10px">Vorbereitungen des Kunden</h3>
+      <ul class="cstat" id="cstat"></ul>
+    </section>
+
+    <section class="card">
+      <h3 style="margin-bottom:12px">Neuigkeit posten</h3>
+      <form class="f" id="upForm">
+        <label>Von <select id="upBy"></select></label>
+        <label>Überschrift <input id="upT" required placeholder="z. B. Material ist unterwegs"></label>
+        <label>Text <textarea id="upX" required placeholder="z. B. Die Spedition liefert am 23.11. zwischen 8 und 12 Uhr."></textarea></label>
+        <div><button class="btn primary" type="submit">Veröffentlichen</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h3 style="margin-bottom:12px">Demo-Einstellungen</h3>
+      <label class="switch"><input type="checkbox" id="auto"><span><b>Automatisch antworten</b><br><span class="muted" style="font-size:.9rem">Neue Kundenfragen bekommen nach ca. 7 Sekunden eine passende Beispielantwort. Ausschalten, wenn Sie live aus dieser Ansicht antworten möchten.</span></span></label>
+      <div class="btn-row"><button class="btn danger" type="button" id="reset">Demo zurücksetzen</button></div>
+      <p class="muted" style="font-size:.84rem;margin:12px 0 0">Prototyp ohne Server: Kunden- und Team-Ansicht teilen sich den Speicher dieses Browsers. Für die Live-Demo beide Seiten im selben Browser in zwei Fenstern öffnen.</p>
+    </section>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script>
+const PEOPLE_OPTS = Object.entries(PEOPLE).filter(([k])=>k!=='ks').map(([k,p])=>`<option value="${k}">${p.name}</option>`).join('');
+$('#upBy').innerHTML = PEOPLE_OPTS;
+
+function render(){
+  const drafts={}; document.querySelectorAll('.qitem').forEach(q=>{ drafts[q.dataset.id]=[q.querySelector('textarea').value, q.querySelector('select').value]; });
+  const all = demo.allQuestions();
+  const open = all.filter(q=>!q.a), done = all.filter(q=>q.a);
+  $('#sOpen').textContent = open.length;
+  $('#openQ').innerHTML = open.length ? open.map(q => {
+    const s = autoAnswerFor(q.q);
+    return `<div class="qitem new" data-id="${q.id}">
+      <div class="q"><div class="meta"><span>Familie Mustermann</span><span>${esc(q.d)}</span><span class="tag warn">offen</span></div><div class="txt">${esc(q.q)}</div></div>
+      <form class="reply">
+        <textarea required placeholder="Antwort an Familie Mustermann …"></textarea>
+        <button type="button" class="sugg" data-x="${esc(s.x)}" data-p="${s.p}">Vorschlag übernehmen: „${esc(s.x.slice(0,70))}…“</button>
+        <div class="reply-foot"><select aria-label="Antwort von">${PEOPLE_OPTS}</select><button class="btn primary" type="submit">Antworten</button></div>
+      </form></div>`;
+  }).join('') : '<p class="empty">Keine offenen Fragen. Stellen Sie in der Kundenansicht eine Frage, sie erscheint hier sofort.</p>';
+  Object.entries(drafts).forEach(([id,[x,p]])=>{ const q=document.querySelector(`.qitem[data-id="${id}"]`); if(q){ q.querySelector('textarea').value=x; q.querySelector('select').value=p; } });
+  $('#nAns').textContent = done.length;
+  $('#ansQ').innerHTML = done.map(i => { const p=PEOPLE[i.a.p]||PEOPLE.sb; return `<li><div class="q"><div class="meta"><span>Familie Mustermann</span><span>${esc(i.d)}</span></div><div class="txt">${esc(i.q)}</div></div><div class="a"><span class="av" style="background:${p.color}">${p.init}</span><div><div class="meta"><b style="color:var(--navy)">${p.name}</b><span>${esc(i.a.d)}</span></div><div class="txt">${esc(i.a.x)}</div></div></div></li>`; }).join('');
+
+  const st = store.get('checklist', {}), tank = store.get('tankChoice', null);
+  const n = CHECKLIST.filter(c=>st[c.id]).length;
+  $('#sCl').textContent = n+'/'+CHECKLIST.length;
+  $('#sTank').textContent = tank==='wir' ? 'über uns (790 €)' : tank==='selbst' ? 'Kunde selbst' : 'noch offen';
+  $('#cstat').innerHTML = CHECKLIST.map(c => `<li><span class="ic ${st[c.id]?'ok':'open'}">${st[c.id]?'<svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#fff" stroke-width="2" fill="none"/></svg>':''}</span><span>${c.t}${c.id==='tank'&&tank?` <span class="tag ${tank==='wir'?'ok':'info'}">${tank==='wir'?'Partnerbetrieb beauftragen':'macht Kunde'}</span>`:''}</span><span class="due">${c.due.slice(0,6)}</span></li>`).join('');
+  $('#auto').checked = demo.auto();
+}
+
+$('#openQ').addEventListener('click', e => {
+  const b = e.target.closest('.sugg'); if(!b) return;
+  const f = b.closest('form'); f.querySelector('textarea').value = b.dataset.x; f.querySelector('select').value = b.dataset.p;
+});
+$('#openQ').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, id = f.closest('.qitem').dataset.id, x = f.querySelector('textarea').value.trim(), p = f.querySelector('select').value;
+  if(!x) return;
+  demo.answer(id, p, x); render(); toast('Antwort ist beim Kunden sichtbar.');
+});
+$('#openQ').addEventListener('input', e => {
+  const f = e.target.closest('form'); if(!f || e.target.tagName!=='TEXTAREA') return;
+  store.set('typing', e.target.value ? {id:f.closest('.qitem').dataset.id, p:f.querySelector('select').value} : null);
+});
+$('#upForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const list = store.get('extraUpdates', []);
+  list.push({d:today()+', '+nowTime(), by:PEOPLE[$('#upBy').value].name, t:$('#upT').value.trim(), x:$('#upX').value.trim()});
+  store.set('extraUpdates', list); e.target.reset(); toast('Neuigkeit ist veröffentlicht.');
+});
+$('#auto').addEventListener('change', e => { store.set('demoAuto', e.target.checked); toast(e.target.checked ? 'Automatische Antworten an' : 'Automatische Antworten aus'); });
+$('#reset').addEventListener('click', () => { if(confirm('Alle Demo-Fragen, Antworten, Neuigkeiten und Häkchen löschen?')){ demo.reset(); render(); toast('Demo zurückgesetzt'); } });
+
+(function(){ const d=Math.ceil((INSTALL_DATE-new Date())/86400000); $('#sDays').textContent = d>0 ? d : '–'; })();
+
+window.addEventListener('storage', e => {
+  if (!e.key || !e.key.startsWith('wpaeb_') || e.key==='wpaeb_typing') return;
+  if (e.key==='wpaeb_questions') toast('Neue Frage von Familie Mustermann');
+  if (e.key==='wpaeb_checklist') toast('Kunde hat die Checkliste aktualisiert');
+  render();
+});
+render();
+</script>
+</body>
+</html>
