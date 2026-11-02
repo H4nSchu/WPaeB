@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So funktioniert der Heizkörpertausch</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.narrow{max-width:960px;margin:0 auto;padding:0 var(--gutter)}
+.stack{display:flex;flex-direction:column;gap:20px;padding:24px 0 48px}
+.compare{display:grid;gap:14px;margin-top:14px}
+@media (min-width:760px){.compare{grid-template-columns:1fr auto 1fr;align-items:center}}
+.fig{border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;background:#fbfbfa;margin:0}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{margin-top:10px;font-size:.9rem}
+.fig figcaption b{display:block;font-size:1rem}
+.arrow{display:grid;place-items:center;font-size:1.6rem;color:var(--navy);font-weight:800}
+@media (max-width:759px){.arrow{transform:rotate(90deg)}}
+.facts-list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.facts-list li{display:flex;gap:10px;align-items:flex-start}
+.facts-list .check-ic{flex:none;width:20px;height:20px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;margin-top:2px}
+.howto4{display:grid;gap:12px;margin-top:14px;counter-reset:h}
+@media (min-width:760px){.howto4{grid-template-columns:repeat(4,1fr)}}
+.howto4 > div{border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px}
+.howto4 > div::before{counter-increment:h;content:counter(h);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.82rem;margin-bottom:8px}
+.howto4 h3{font-size:.98rem;margin-bottom:4px}
+.howto4 p{font-size:.9rem;color:var(--muted);margin:0}
+.bars{display:grid;gap:10px;margin-top:14px}
+.bar-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;font-size:.92rem}
+.bar-row .b{height:22px;border-radius:0 4px 4px 0;background:#2a64b0;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-weight:700;font-size:.82rem;min-width:56px}
+.bar-row .b.low{background:#8fb0db;color:var(--navy)}
+@media (max-width:520px){.bar-row{grid-template-columns:1fr}}
+.back{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;margin-left:auto;opacity:.9}
+.back:hover{opacity:1;text-decoration:underline}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1.5 1.5 7v7.5h4.5V10h4v4.5h4.5V7z" fill="#0b1f3b"/></svg></span>Projektportal <small>Wärmepumpe</small></a>
+    <a class="back" href="index.html#heizkoerper">← Zurück zu Ihrer Planung</a>
+  </div>
+</header>
+
+<section class="hero" style="padding:32px 0 34px">
+  <div class="narrow">
+    <div class="eyebrow">Erklärt in 3 Minuten</div>
+    <h1>So funktioniert der Heizkörpertausch</h1>
+    <p class="lead">In den meisten Fällen ist es ganz unspektakulär: Wir tauschen einen Heizkörper gegen einen leistungsstärkeren, der an dieselben Anschlüsse passt. Meist dauert das ein bis zwei Stunden pro Raum.</p>
+  </div>
+</section>
+
+<div class="narrow stack">
+  <section class="card">
+    <h2>Warum überhaupt tauschen?</h2>
+    <p style="margin-top:10px">Ihr Ölkessel hat das Heizwasser auf bis zu 75 °C erhitzt. Die Wärmepumpe arbeitet am effizientesten mit niedrigeren Temperaturen, bei Ihnen höchstens 55 °C. Ein Heizkörper gibt bei kühlerem Wasser deutlich weniger Wärme ab. Beispiel für einen typischen Heizkörper Typ 22 mit 600 × 1.000 mm:</p>
+    <div class="bars" role="img" aria-label="Leistung Typ 22 bei 75 Grad 1.800 Watt, bei 55 Grad 950 Watt; Typ 33 bei 55 Grad 1.380 Watt">
+      <div class="bar-row"><span>Typ 22 bei 75 °C</span><div class="b" style="width:100%">1.800 W</div></div>
+      <div class="bar-row"><span>Typ 22 bei 55 °C</span><div class="b low" style="width:53%">950 W</div></div>
+      <div class="bar-row"><span>Typ 33 bei 55 °C</span><div class="b" style="width:77%">1.380 W</div></div>
+    </div>
+    <p class="muted" style="font-size:.86rem;margin:10px 0 0">Richtwerte bei 20 °C Raumtemperatur. Die genauen Werte für Ihr Haus stehen in Ihrer Planung.</p>
+    <p style="margin:14px 0 0">In den meisten Räumen reicht das trotzdem, weil Heizkörper früher großzügig ausgelegt wurden. Nur wo die Leistung nicht reicht, empfehlen wir einen Tausch.</p>
+  </section>
+
+  <section class="card">
+    <h2>Fall 1: Typ 22 wird zu Typ 33</h2>
+    <p style="margin-top:10px">Der häufigste Fall. Die Zahl beschreibt den Aufbau: Ein <b>Typ 22</b> hat 2 Heizplatten und 2 Lagen Lamellen dahinter, ein <b>Typ 33</b> hat jeweils 3. Von vorne sehen beide gleich aus, der 33er ist nur etwa 5 cm tiefer.</p>
+    <div class="compare">
+      <figure class="fig">
+        <svg viewBox="0 0 260 150" role="img" aria-label="Querschnitt Typ 22: zwei Platten, zwei Lamellenlagen, 100 Millimeter tief">
+          <rect x="0" y="0" width="260" height="10" fill="#c9ced6"/><text x="6" y="8" font-size="8" fill="#0b1f3b" font-family="Figtree,sans-serif">Wand</text>
+          <g transform="translate(70 22)">
+            <rect x="0" y="0" width="8" height="100" rx="2" fill="#0b1f3b"/>
+            <path d="M10 0 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 4" fill="none" stroke="#2a64b0" stroke-width="2"/>
+            <path d="M24 0 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 4" fill="none" stroke="#2a64b0" stroke-width="2"/>
+            <rect x="36" y="0" width="8" height="100" rx="2" fill="#0b1f3b"/>
+            <path d="M0 112 H44" stroke="#5b6577"/><path d="M0 108v8M44 108v8" stroke="#5b6577"/>
+            <text x="22" y="126" font-size="10" text-anchor="middle" fill="#5b6577" font-family="Figtree,sans-serif">ca. 100 mm</text>
+          </g>
+          <g font-family="Figtree,sans-serif" font-size="10" fill="#0b1f3b">
+            <text x="150" y="50">■ Heizplatte (2×)</text>
+            <text x="150" y="68" fill="#2a64b0">⌇ Lamellen (2×)</text>
+          </g>
+        </svg>
+        <figcaption><b>Typ 22 (heute)</b>Querschnitt von oben</figcaption>
+      </figure>
+      <div class="arrow" aria-hidden="true">→</div>
+      <figure class="fig">
+        <svg viewBox="0 0 260 150" role="img" aria-label="Querschnitt Typ 33: drei Platten, drei Lamellenlagen, 155 Millimeter tief">
+          <rect x="0" y="0" width="260" height="10" fill="#c9ced6"/><text x="6" y="8" font-size="8" fill="#0b1f3b" font-family="Figtree,sans-serif">Wand</text>
+          <g transform="translate(50 22)">
+            <rect x="0" y="0" width="8" height="100" rx="2" fill="#0b1f3b"/>
+            <path d="M10 0 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 4" fill="none" stroke="#2a64b0" stroke-width="2"/>
+            <rect x="22" y="0" width="8" height="100" rx="2" fill="#0b1f3b"/>
+            <path d="M32 0 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 4" fill="none" stroke="#2a64b0" stroke-width="2"/>
+            <path d="M46 0 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 8 l10 8 l-10 4" fill="none" stroke="#2a64b0" stroke-width="2"/>
+            <rect x="58" y="0" width="8" height="100" rx="2" fill="#0b1f3b"/>
+            <path d="M0 112 H66" stroke="#5b6577"/><path d="M0 108v8M66 108v8" stroke="#5b6577"/>
+            <text x="33" y="126" font-size="10" text-anchor="middle" fill="#5b6577" font-family="Figtree,sans-serif">ca. 155 mm</text>
+          </g>
+          <g font-family="Figtree,sans-serif" font-size="10" fill="#0b1f3b">
+            <text x="150" y="50">■ Heizplatte (3×)</text>
+            <text x="150" y="68" fill="#2a64b0">⌇ Lamellen (3×)</text>
+          </g>
+        </svg>
+        <figcaption><b>Typ 33 (neu)</b>Gleiche Höhe und Breite, ca. 45 % mehr Leistung</figcaption>
+      </figure>
+    </div>
+    <ul class="facts-list">
+      <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Gleiche Maße und gleiche Anschlüsse: Die Rohre bleiben, wo sie sind.</li>
+      <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Meist passen sogar die alten Wandhalter, sonst bohren wir zwei neue Löcher.</li>
+      <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Einziger Unterschied: Er steht etwa 5 cm weiter in den Raum. Fensterbank und Vorhänge sollten das berücksichtigen.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Fall 2: Alter Rippenheizkörper wird zum modernen Flachheizkörper</h2>
+    <p style="margin-top:10px">Alte Glieder- oder Rippenheizkörper aus Guss oder Stahl haben viel Wasser im Inneren, aber wenig Oberfläche. Ein moderner Flachheizkörper gibt bei gleicher Größe deutlich mehr Wärme ab und reagiert schneller.</p>
+    <div class="compare">
+      <figure class="fig">
+        <svg viewBox="0 0 260 130" role="img" aria-label="Alter Rippenheizkörper mit vielen senkrechten Gliedern">
+          <g fill="#9aa3b2">
+            <rect x="30" y="20" width="200" height="8" rx="3"/><rect x="30" y="102" width="200" height="8" rx="3"/>
+          </g>
+          <g fill="#b8c0cc" stroke="#9aa3b2">
+            <rect x="34" y="16" width="11" height="98" rx="5"/><rect x="50" y="16" width="11" height="98" rx="5"/><rect x="66" y="16" width="11" height="98" rx="5"/><rect x="82" y="16" width="11" height="98" rx="5"/><rect x="98" y="16" width="11" height="98" rx="5"/><rect x="114" y="16" width="11" height="98" rx="5"/><rect x="130" y="16" width="11" height="98" rx="5"/><rect x="146" y="16" width="11" height="98" rx="5"/><rect x="162" y="16" width="11" height="98" rx="5"/><rect x="178" y="16" width="11" height="98" rx="5"/><rect x="194" y="16" width="11" height="98" rx="5"/><rect x="210" y="16" width="11" height="98" rx="5"/>
+          </g>
+        </svg>
+        <figcaption><b>Rippenheizkörper (heute)</b>Viel Wasser, wenig Fläche, träge</figcaption>
+      </figure>
+      <div class="arrow" aria-hidden="true">→</div>
+      <figure class="fig">
+        <svg viewBox="0 0 260 130" role="img" aria-label="Moderner Flachheizkörper mit glatter Front">
+          <rect x="30" y="18" width="200" height="94" rx="4" fill="#f4f5f7" stroke="#9aa3b2" stroke-width="1.5"/>
+          <g stroke="#e2e5ea"><path d="M30 36h200M30 54h200M30 72h200M30 90h200"/></g>
+          <rect x="30" y="18" width="200" height="8" rx="3" fill="#dfe3ea"/>
+          <circle cx="218" cy="98" r="6" fill="#0b1f3b"/>
+        </svg>
+        <figcaption><b>Flachheizkörper (neu)</b>Mehr Fläche, weniger Wasser, regelt schneller</figcaption>
+      </figure>
+    </div>
+    <ul class="facts-list">
+      <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Die Anschlüsse liegen oft anders. Wir passen sie mit kurzen Übergangsstücken an, Wände müssen dafür nicht aufgestemmt werden.</li>
+      <li><span class="check-ic"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3" stroke="#1d8a4e" stroke-width="2" fill="none"/></svg></span>Den alten Heizkörper nehmen wir mit und entsorgen ihn.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>So läuft der Tausch bei Ihnen ab</h2>
+    <div class="howto4">
+      <div><h3>Absperren</h3><p>Wir sperren den Heizkörper ab und lassen das Wasser ab. Der Rest der Heizung bleibt gefüllt.</p></div>
+      <div><h3>Abbauen</h3><p>Der alte Heizkörper kommt runter. Wir legen den Boden vorher mit Folie aus.</p></div>
+      <div><h3>Montieren</h3><p>Der neue Heizkörper kommt an die vorhandenen Anschlüsse, mit neuem Ventil und Thermostatkopf.</p></div>
+      <div><h3>Abgleichen</h3><p>Befüllen, entlüften und das Ventil auf den richtigen Durchfluss einstellen (hydraulischer Abgleich).</p></div>
+    </div>
+    <p class="muted" style="margin:14px 0 0;font-size:.92rem">Dauer: etwa 1 bis 2 Stunden pro Heizkörper. Bei Bestellung bis 13.11. erledigen wir das während der Wärmepumpen-Installation, ohne extra Termin.</p>
+  </section>
+
+  <section class="card">
+    <h2>Kosten und Beauftragung</h2>
+    <p style="margin-top:10px"><b>1.500 € Festpreis pro Heizkörper</b>, inklusive Heizkörper, Ventil, Thermostatkopf, Montage, Abgleich und Entsorgung des alten Heizkörpers. Sie können den Tausch auch innerhalb von 18 Monaten nach der Installation zum gleichen Preis nachholen.</p>
+    <div class="btn-row">
+      <a class="btn primary" href="index.html#heizkoerper">Zu meinen Heizkörpern</a>
+      <a class="btn ghost" href="tel:+4956112345612">Sarah Brandt anrufen</a>
+    </div>
+  </section>
+</div>
+<footer><div class="wrap"><span>Muster Energie GmbH · Prototyp mit Beispieldaten</span><a href="index.html">Zurück zur Planung</a></div></footer>
+</body>
+</html>
